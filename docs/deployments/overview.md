@@ -7,10 +7,11 @@ This page contains deployment information for the OmniDragon OFT token and cross
 
 ## OmniDRAGON (OFT) – Token
 
-See addresses and EIDs in: /docs/guides/frontend-config
+DRAGON address (all chains): `0x6949936442425f4137807Ac5d269e6Ef66d50777`
 
 ### LayerZero V2 EIDs
-See: /docs/guides/frontend-config
+- Sonic: 30272
+- Arbitrum: 30110
 
 ### Core Dependencies (for fee distribution)
 

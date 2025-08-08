@@ -10,7 +10,7 @@ Complete technical reference for Red Dragon smart contracts with ABIs and integr
 
 ### DRAGON Token (ERC-20)
 
-Address: see Frontend Config cheat sheet (/docs/guides/frontend-config)
+DRAGON address (same on all supported chains): `0x6949936442425f4137807Ac5d269e6Ef66d50777`
 
 ```javascript
 // Essential ERC-20 functions for frontend integration
@@ -71,8 +71,8 @@ import { ethers } from 'ethers';
 class DragonTokenService {
   constructor(provider) {
     this.provider = provider;
-    // Import DRAGON (address) from Frontend Config
-    this.contract = new ethers.Contract(DRAGON, DRAGON_ABI, provider);
+    // Set DRAGON_ADDRESS in your app
+    this.contract = new ethers.Contract(DRAGON_ADDRESS, DRAGON_ABI, provider);
   }
 
   // Get token information
@@ -89,7 +89,7 @@ class DragonTokenService {
       symbol,
       decimals: Number(decimals),
       totalSupply: ethers.formatUnits(totalSupply, decimals),
-      address: DRAGON
+      address: DRAGON_ADDRESS
     };
   }
 

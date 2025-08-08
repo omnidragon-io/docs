@@ -3,19 +3,17 @@ title: Frontend Integration Guide (TL;DR)
 sidebar_position: 20
 ---
 
-This is the minimal glue code your frontend needs. For constants (addresses, EIDs, RPCs), use the Frontend Config cheat sheet.
+This is the minimal glue code your frontend needs. Constants are in Quick Start.
 
 ## TL;DR
-1) Import constants from Frontend Config
+1) Define constants (see Quick Start)
 2) Quote LayerZero fee with `quoteSend`
 3) Call `send` with `value = nativeFee`
 4) Optionally confirm on destination with `balanceOf`
 
-Links: /docs/guides/frontend-config
+Links: see Quick Start
 
-> Use the Frontend Config cheat sheet for constants: token/registry, EIDs and RPCs.
->
-> - See: /docs/guides/frontend-config
+> Constants (token/registry, EIDs and RPCs) are listed in Quick Start.
 
 ## ABI Notes (OFT)
 - OFT `SendParam` (struct): `(uint32 dstEid, bytes32 to, uint256 amountLD, uint256 minAmountLD, bytes extraOptions, bytes composeMsg, bytes oftCmd)`
@@ -70,7 +68,7 @@ cast call 0x69821FFA2312253209FdabB3D84f034B697E7777 "balanceOf(address)" $TO --
 ```
 
 ## Addresses
-Single source of truth: /docs/guides/frontend-config
+DRAGON_ADDRESS and RPCs: see Quick Start
 
 ## UX Notes
 - Bridge flow: select destination chain → quote fee → send → show pending status → poll destination balance

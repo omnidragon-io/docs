@@ -23,11 +23,21 @@ npm install ethers
 npm install wagmi viem @tanstack/react-query
 ```
 
-## 2. Addresses & EIDs (single source)
+## 2. Minimal constants
 
-Use the Frontend Config cheat sheet for all constants (token/registry, EIDs, RPCs, VRF):
+```javascript
+// DRAGON token address (same on all supported chains)
+export const DRAGON_ADDRESS = '0x6949936442425f4137807Ac5d269e6Ef66d50777';
 
-- See: /docs/guides/frontend-config
+// Minimal RPC map for quick testing
+export function getRpcUrl(chainId) {
+  const rpc = {
+    sonic: 'https://rpc.soniclabs.com',
+    arbitrum: 'https://arb1.arbitrum.io/rpc',
+  };
+  return rpc[chainId];
+}
+```
 
 ## 3. Basic Token Integration
 
@@ -48,9 +58,8 @@ async function getDragonBalance(userAddress, chainId = 'sonic') {
   // Connect to provider
   const provider = new ethers.JsonRpcProvider(getRpcUrl(chainId));
   
-  // Create contract instance
-  // Import DRAGON_ADDRESS from the Frontend Config cheat sheet
-  const contract = new ethers.Contract(DRAGON_ADDRESS, ERC20_ABI, provider);
+// Create contract instance
+const contract = new ethers.Contract(DRAGON_ADDRESS, ERC20_ABI, provider);
   
   try {
     const balance = await contract.balanceOf(userAddress);
@@ -76,7 +85,15 @@ console.log(`Balance: ${balance.formatted} DRAGON`);
 ```
 
 ### Send DRAGON Tokens
-Use the minimal example in Frontend Config or reuse the balance code above with a signer.
+```javascript
+import { ethers } from 'ethers';
+
+const provider = new ethers.BrowserProvider(window.ethereum);
+const signer = await provider.getSigner();
+const token = new ethers.Contract(DRAGON_ADDRESS, ["function transfer(address to, uint256 amount) returns (bool)"], signer);
+const tx = await token.transfer('0xRecipient', ethers.parseUnits('1', 18));
+await tx.wait();
+```
 
 ## 4. React
 Use your app’s existing state/query patterns. For a ready hook and more examples, see the full Frontend Integration guide.
