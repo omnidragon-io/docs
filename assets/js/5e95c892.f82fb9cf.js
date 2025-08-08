@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksonic_red_dragon_docs=self.webpackChunksonic_red_dragon_docs||[]).push([[9647],{8122:(e,s,r)=>{r.r(s),r.d(s,{default:()=>t});r(6540);var c=r(4164),d=r(1769),n=r(204),a=r(2831),o=r(9847),u=r(4848);function t(e){return(0,u.jsx)(d.e3,{className:(0,c.A)(n.G.wrapper.docsPages),children:(0,u.jsx)(o.A,{children:(0,a.v)(e.route.routes)})})}}}]);

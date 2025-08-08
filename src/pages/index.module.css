@@ -1,0 +1,335 @@
+/**
+ * Red Dragon Homepage Styles
+ * CSS modules scoped locally for the homepage
+ */
+
+/* Hero Section */
+.heroSection {
+  padding: 8rem 0 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(30px);
+  border-radius: 32px;
+  padding: 4rem 3rem;
+  border: 1px solid rgba(255, 71, 87, 0.15);
+  box-shadow: 0 32px 128px rgba(0, 0, 0, 0.4);
+}
+
+.heroTitle {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #e7a127 0%, #ffffff 50%, #ff4757 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+}
+
+.heroSubtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.heroDescription {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 3rem 0 4rem 0;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.statItem strong {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ff6b7a;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.statItem span {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.heroActions {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 6rem 0;
+  background: transparent;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.featureCard {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 71, 87, 0.3);
+  box-shadow: 0 24px 64px rgba(255, 71, 87, 0.15);
+}
+
+.featureCard h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ff6b7a;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.featureCard p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Call to Action Section */
+.ctaSection {
+  padding: 6rem 0;
+  text-align: center;
+  background: transparent;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e7a127 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.ctaDescription {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Button Styles */
+.primaryButton {
+  display: inline-block;
+  background: linear-gradient(135deg, #e7a127 0%, #ff4757 100%);
+  color: #ffffff !important;
+  padding: 1.5rem 3rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(255, 71, 87, 0.3);
+  border: 2px solid rgba(255, 71, 87, 0.4);
+}
+
+.primaryButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(255, 71, 87, 0.4);
+  color: #ffffff !important;
+  border-color: rgba(255, 71, 87, 0.6);
+  text-decoration: none;
+}
+
+.secondaryButton {
+  display: inline-block;
+  background: transparent;
+  color: #ffffff !important;
+  padding: 1.5rem 3rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 71, 87, 0.1);
+  border-color: rgba(255, 71, 87, 0.4);
+  transform: translateY(-4px);
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 996px) {
+  .heroSection {
+    padding: 5rem 0 4rem 0;
+  }
+  
+  .heroContent {
+    padding: 3rem 2rem;
+    border-radius: 24px;
+  }
+  
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.6rem;
+  }
+  
+  .heroDescription {
+    font-size: 1.2rem;
+  }
+  
+  .heroStats {
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+  }
+  
+  .statItem strong {
+    font-size: 2.2rem;
+  }
+  
+  .statItem span {
+    font-size: 0.9rem;
+  }
+  
+  .heroActions,
+  .ctaActions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .featuresSection {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .featureCard {
+    padding: 2.5rem;
+    border-radius: 20px;
+  }
+  
+  .featureCard h3 {
+    font-size: 1.4rem;
+  }
+  
+  .ctaSection {
+    padding: 4rem 0;
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaDescription {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroContent {
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.4rem;
+  }
+  
+  .heroStats {
+    gap: 1.5rem;
+  }
+  
+  .statItem {
+    padding: 1rem;
+  }
+}

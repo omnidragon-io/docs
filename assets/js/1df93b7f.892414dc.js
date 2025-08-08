@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksonic_red_dragon_docs=self.webpackChunksonic_red_dragon_docs||[]).push([[4583],{6107:(r,n,s)=>{s.r(n),s.d(n,{default:()=>c});s(6540);var d=s(6347),e=s(9030),o=s(4848);function c(){return(0,o.jsx)(d.rd,{to:(0,e.Ay)("/intro")})}}}]);
