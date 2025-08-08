@@ -300,7 +300,7 @@ async function checkRandomnessStatus(requestId) {
 
 | Chain | Chain ID | Block Explorer |
 |-------|----------|----------------|
-| **Sonic** | 61 | [sonicscan.org](https://sonicscan.org) |
+| **Sonic** | 146 | [sonicscan.org](https://sonicscan.org) |
 | **Arbitrum** | 42161 | [arbiscan.io](https://arbiscan.io) |
 | **Ethereum** | 1 | [etherscan.io](https://etherscan.io) |
 | **Base** | 8453 | [basescan.org](https://basescan.org) |

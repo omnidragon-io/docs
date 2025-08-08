@@ -117,7 +117,7 @@ function getRpcUrl(chainId) {
 // Chain configurations for wallet switching
 const SUPPORTED_CHAINS = {
   sonic: {
-    chainId: '0x3D', // 61 in hex
+    chainId: '0x92', // 146 in hex
     chainName: 'Sonic',
     rpcUrls: ['https://rpc.soniclabs.com'],
     blockExplorerUrls: ['https://sonicscan.org']
