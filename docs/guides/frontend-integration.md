@@ -1,9 +1,17 @@
 ---
-title: Frontend Integration Guide
+title: Frontend Integration Guide (TL;DR)
 sidebar_position: 20
 ---
 
-This guide gives a front-end developer everything needed to integrate bridging and balances for the OmniDRAGON OFT token across chains.
+This is the minimal glue code your frontend needs. For constants (addresses, EIDs, RPCs), use the Frontend Config cheat sheet.
+
+## TL;DR
+1) Import constants from Frontend Config
+2) Quote LayerZero fee with `quoteSend`
+3) Call `send` with `value = nativeFee`
+4) Optionally confirm on destination with `balanceOf`
+
+Links: /docs/guides/frontend-config
 
 > Use the Frontend Config cheat sheet for constants: token/registry, EIDs and RPCs.
 >
@@ -15,7 +23,7 @@ This guide gives a front-end developer everything needed to integrate bridging a
 - `send((...), (uint256 nativeFee, uint256 lzTokenFee), address refund)` must be called with `value = nativeFee`
 - Receive gas is not enforced in config; `extraOptions` can be `0x`
 
-## Example (ethers.js v6)
+## Minimal Example (ethers v6)
 ```ts
 import { ethers } from 'ethers'
 
@@ -43,7 +51,7 @@ const tx = await token.send(sendParam, [nativeFee, 0n], user, { value: nativeFee
 await tx.wait()
 ```
 
-## Example (Foundry cast)
+## Minimal Example (Foundry cast)
 ```bash
 TOKEN=0x69821FFA2312253209FdabB3D84f034B697E7777
 TO=0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F
@@ -56,13 +64,13 @@ NATIVE_FEE=$(cast to-dec $NATIVE_FEE_HEX)
 cast send $TOKEN "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)" "($DST,$TO_B32,$AMOUNT,$AMOUNT,0x,0x,0x)" "($NATIVE_FEE,0)" $TO --value $NATIVE_FEE --rpc-url $RPC_URL_SONIC --private-key $PRIVATE_KEY
 ```
 
-## Confirming Credit
+## Confirming Credit (destination)
 ```bash
 cast call 0x69821FFA2312253209FdabB3D84f034B697E7777 "balanceOf(address)" $TO --rpc-url $RPC_URL_ARBITRUM
 ```
 
 ## Addresses
-See: /docs/guides/frontend-config (single source of truth)
+Single source of truth: /docs/guides/frontend-config
 
 ## UX Notes
 - Bridge flow: select destination chain → quote fee → send → show pending status → poll destination balance
@@ -70,96 +78,8 @@ See: /docs/guides/frontend-config (single source of truth)
 
 ---
 
-## LayerZero OFT Transfer API Usage Guide
-
-See: `https://docs.layerzero.network/v2/tools/api/oft`.
-
-### Install
-```bash
-npm i ethers axios dotenv @layerzerolabs/lz-definitions
-```
-
-### .env
-```bash
-OFT_API_KEY=your-api-key-here
-PRIVATE_KEY=your-private-key-here
-```
-
-### Endpoints
-- List: `GET https://metadata.layerzero-api.com/v1/metadata/experiment/ofts/list`
-- Transfer: `GET https://metadata.layerzero-api.com/v1/metadata/experiment/ofts/transfer` (header: `x-layerzero-api-key`)
-
-### Discover Tokens (/list)
-```ts
-import axios from 'axios'
-const API_BASE_URL = 'https://metadata.layerzero-api.com/v1/metadata/experiment/ofts'
-const res = await axios.get(`${API_BASE_URL}/list`, { params: { symbols: 'DRAGON' } })
-const tokenData = res.data['DRAGON']?.[0]
-const availableChains = Object.keys(tokenData.deployments)
-```
-
-### Generate Transfer Tx (/transfer)
-```ts
-import axios from 'axios'
-import { ethers } from 'ethers'
-
-const API_KEY = process.env.OFT_API_KEY!
-const API_BASE_URL = 'https://metadata.layerzero-api.com/v1/metadata/experiment/ofts'
-
-const fromChain = 'sonic'
-const toChain = 'arbitrum'
-const oftAddress = tokenData.deployments[fromChain].address
-
-const response = await axios.get(`${API_BASE_URL}/transfer`, {
-  params: {
-    srcChainName: fromChain,
-    dstChainName: toChain,
-    srcAddress: oftAddress,
-    amount: '69420000000000000000000',
-    from: wallet.address,
-    to: wallet.address,
-    validate: true,
-  },
-  headers: { 'x-layerzero-api-key': API_KEY },
-})
-
-const { transactionData } = response.data
-if (transactionData.approvalTransaction) {
-  const tx = await wallet.sendTransaction(transactionData.approvalTransaction)
-  await tx.wait()
-}
-const tx2 = await wallet.sendTransaction(transactionData.populatedTransaction)
-await tx2.wait()
-```
-
-### Optional extraOptions
-```ts
-const response = await axios.get(`${API_BASE_URL}/transfer`, {
-  params: {
-    srcChainName: fromChain,
-    dstChainName: toChain,
-    srcAddress: oftAddress,
-    amount: '1000000000000000000',
-    from: wallet.address,
-    to: wallet.address,
-    validate: true,
-    options: JSON.stringify({
-      executor: {
-        lzReceive: { gasLimit: 300000 },
-        nativeDrops: [{ amount: '1000000000000000', receiver: wallet.address }],
-      },
-    }),
-  },
-  headers: { 'x-layerzero-api-key': API_KEY },
-})
-```
-
-### Track Messages (LayerZero Scan API)
-- Base URL: `https://scan.layerzero-api.com/v1`
-- Example: `GET /messages/tx/{tx}`
-
-Notes:
-- Amount must satisfy min conversion per shared/local decimals
-- Ensure native balance for fees and token balance for the amount
+## LayerZero OFT API (optional)
+For auto-populated txs and discovery, use the OFT API: https://docs.layerzero.network/v2/tools/api/oft
+This is optional; most apps can just use `quoteSend` + `send` above.
 
 

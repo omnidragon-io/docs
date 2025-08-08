@@ -76,99 +76,10 @@ console.log(`Balance: ${balance.formatted} DRAGON`);
 ```
 
 ### Send DRAGON Tokens
+Use the minimal example in Frontend Config or reuse the balance code above with a signer.
 
-```javascript
-async function sendDragon(recipientAddress, amount, chainId = 'sonic') {
-  // Connect to user's wallet
-  const provider = new ethers.BrowserProvider(window.ethereum);
-  const signer = await provider.getSigner();
-  
-  // Create contract instance with signer
-  // Import DRAGON_ADDRESS from the Frontend Config cheat sheet
-  const contract = new ethers.Contract(DRAGON_ADDRESS, ERC20_ABI, signer);
-  
-  try {
-    // Convert amount to wei (18 decimals for DRAGON)
-    const amountWei = ethers.parseUnits(amount.toString(), 18);
-    
-    // Send transaction
-    const tx = await contract.transfer(recipientAddress, amountWei);
-    console.log('Transaction sent:', tx.hash);
-    
-    // Wait for confirmation
-    const receipt = await tx.wait();
-    console.log('Transaction confirmed:', receipt.transactionHash);
-    
-    return {
-      success: true,
-      txHash: receipt.transactionHash,
-      gasUsed: receipt.gasUsed.toString()
-    };
-  } catch (error) {
-    console.error('Transfer failed:', error);
-    return {
-      success: false,
-      error: error.message
-    };
-  }
-}
-
-// Usage example
-const result = await sendDragon('0x742d35Cc6bF4532C747eb30F34D4AdBDce3b3123', 100);
-```
-
-## 4. React Hook Example
-
-For React applications, here's a reusable hook:
-
-```jsx
-import { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
-
-function useDragonBalance(userAddress, chainId = 'sonic') {
-  const [balance, setBalance] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    if (!userAddress) return;
-
-    async function fetchBalance() {
-      setLoading(true);
-      setError(null);
-      
-      try {
-        const balanceData = await getDragonBalance(userAddress, chainId);
-        setBalance(balanceData);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchBalance();
-  }, [userAddress, chainId]);
-
-  return { balance, loading, error };
-}
-
-// Usage in component
-function DragonWallet({ userAddress }) {
-  const { balance, loading, error } = useDragonBalance(userAddress);
-
-  if (loading) return <div>Loading balance...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!balance) return <div>No balance data</div>;
-
-  return (
-    <div className="dragon-balance">
-      <h3>Your DRAGON Balance</h3>
-      <p>{balance.formatted} DRAGON</p>
-    </div>
-  );
-}
-```
+## 4. React
+Use your app’s existing state/query patterns. For a ready hook and more examples, see the full Frontend Integration guide.
 
 ## 5. Network Configuration
 
@@ -204,29 +115,7 @@ const SUPPORTED_CHAINS = {
 ```
 
 ## 6. Error Handling
-
-```javascript
-// Comprehensive error handling for common issues
-function handleWeb3Error(error) {
-  if (error.code === 4001) {
-    return "User rejected the transaction";
-  }
-  
-  if (error.code === -32603) {
-    return "Internal error - check your connection";
-  }
-  
-  if (error.message.includes('insufficient funds')) {
-    return "Insufficient funds for transaction";
-  }
-  
-  if (error.message.includes('user rejected')) {
-    return "Transaction was cancelled";
-  }
-  
-  return error.message || "An unknown error occurred";
-}
-```
+Handle errors per your app’s conventions. Common cases: user rejection (4001), insufficient funds, and provider connectivity.
 
 ## Next Steps
 
