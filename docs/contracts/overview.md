@@ -25,6 +25,9 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - **OmniDragonPrimaryOracle (Sonic-only)**: `0x69773eC63Bf4b8892fDEa30D07c91E205866e777`
 - **veDRAGON**: `0x6982e7747b0f833C2c5b07aD45D228734c145777` (all chains)
 - **DragonJackpotVault**: `0x69352F6940529E00ccc6669606721b07BC659777` (all chains)
+- **OmniDragonLotteryManager (Sonic-only)**: `0x69906Fc8e0aA3cAbb184D99dF34EcE7e03769777`
+- **redDRAGON (ERC-4626 Vault, Sonic)**: `0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1`
+- **CREATE2 Factory**: `0xAA28020DDA6b954D16208eccF873D79AC6533833`
 
 ### LayerZero V2 Settings
 - EIDs: Ethereum 30101, Arbitrum 30110, Avalanche 30106, Base 30184, Sonic 30332
