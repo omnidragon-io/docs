@@ -10,7 +10,7 @@ Complete technical reference for Red Dragon smart contracts with ABIs and integr
 
 ### DRAGON Token (ERC-20)
 
-**Deployed on all chains at:** `0x6949936442425f4137807Ac5d269e6Ef66d50777`
+Address: see Frontend Config cheat sheet (/docs/guides/frontend-config)
 
 ```javascript
 // Essential ERC-20 functions for frontend integration
@@ -61,19 +61,18 @@ const VRF_ABI = [
 ];
 ```
 
-## Integration Examples
+## Minimal Integration
 
-### Basic Token Operations
+### Basic Token Read/Write
 
 ```javascript
 import { ethers } from 'ethers';
 
 class DragonTokenService {
-  constructor(provider, chainId = 'sonic') {
+  constructor(provider) {
     this.provider = provider;
-    this.chainId = chainId;
-    this.contractAddress = DRAGON_CONTRACTS[chainId];
-    this.contract = new ethers.Contract(this.contractAddress, DRAGON_ABI, provider);
+    // Import DRAGON (address) from Frontend Config
+    this.contract = new ethers.Contract(DRAGON, DRAGON_ABI, provider);
   }
 
   // Get token information
@@ -90,8 +89,7 @@ class DragonTokenService {
       symbol,
       decimals: Number(decimals),
       totalSupply: ethers.formatUnits(totalSupply, decimals),
-      address: this.contractAddress,
-      chain: this.chainId
+      address: DRAGON
     };
   }
 
@@ -120,8 +118,8 @@ class DragonTokenService {
 }
 
 // Usage
-const provider = new ethers.JsonRpcProvider('https://rpc.soniclabs.com');
-const dragonService = new DragonTokenService(provider, 'sonic');
+const provider = new ethers.JsonRpcProvider(RPC.sonic);
+const dragonService = new DragonTokenService(provider);
 
 const tokenInfo = await dragonService.getTokenInfo();
 console.log('Token Info:', tokenInfo);
@@ -300,13 +298,13 @@ async function checkRandomnessStatus(requestId) {
 
 ### Supported Chains
 
-| Chain | Chain ID | Block Explorer | RPC Endpoint |
-|-------|----------|----------------|--------------|
-| **Sonic** | 61 | [sonicscan.org](https://sonicscan.org) | `https://rpc.soniclabs.com` |
-| **Arbitrum** | 42161 | [arbiscan.io](https://arbiscan.io) | `https://arb1.arbitrum.io/rpc` |
-| **Ethereum** | 1 | [etherscan.io](https://etherscan.io) | `https://mainnet.infura.io/v3/KEY` |
-| **Base** | 8453 | [basescan.org](https://basescan.org) | `https://mainnet.base.org` |
-| **Avalanche** | 43114 | [snowscan.xyz](https://snowscan.xyz) | `https://api.avax.network/ext/bc/C/rpc` |
+| Chain | Chain ID | Block Explorer |
+|-------|----------|----------------|
+| **Sonic** | 61 | [sonicscan.org](https://sonicscan.org) |
+| **Arbitrum** | 42161 | [arbiscan.io](https://arbiscan.io) |
+| **Ethereum** | 1 | [etherscan.io](https://etherscan.io) |
+| **Base** | 8453 | [basescan.org](https://basescan.org) |
+| **Avalanche** | 43114 | [snowscan.xyz](https://snowscan.xyz) |
 
 ### Gas Optimization Tips
 
