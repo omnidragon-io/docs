@@ -7,21 +7,10 @@ This page contains deployment information for the OmniDragon OFT token and cross
 
 ## OmniDRAGON (OFT) – Token
 
-- Name: Dragon
-- Symbol: DRAGON
-- Address (same on all chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
-- Registry (same on all chains): `0x6949936442425f4137807Ac5d269e6Ef66d50777`
-- Standard: ERC-20 + LayerZero V2 OFT
+See addresses and EIDs in: /docs/guides/frontend-config
 
 ### LayerZero V2 EIDs
-
-| Chain | EID |
-|------|-----|
-| Ethereum | 30101 |
-| Arbitrum | 30110 |
-| Avalanche | 30106 |
-| Base | 30184 |
-| Sonic | 30332 |
+See: /docs/guides/frontend-config
 
 ### Core Dependencies (for fee distribution)
 

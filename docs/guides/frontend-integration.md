@@ -5,28 +5,9 @@ sidebar_position: 20
 
 This guide gives a front-end developer everything needed to integrate bridging and balances for the OmniDRAGON OFT token across chains.
 
-## Token
-- Name: Dragon
-- Symbol: DRAGON
-- Address (same on all chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
-- Standard: ERC-20 + LayerZero V2 OFT
-
-## Registry
-- `0x6949936442425f4137807Ac5d269e6Ef66d50777` (same on all chains)
-
-## LayerZero EIDs
-- Ethereum: `30101`
-- Arbitrum: `30110`
-- Avalanche: `30106`
-- Base: `30184`
-- Sonic: `30332`
-
-## Networks (example RPCs)
-- Ethereum: `https://eth.llamarpc.com`
-- Arbitrum: `https://arb1.arbitrum.io/rpc`
-- Avalanche: `https://api.avax.network/ext/bc/C/rpc`
-- Base: `https://mainnet.base.org`
-- Sonic: (add provider)
+> Use the Frontend Config cheat sheet for constants: token/registry, EIDs and RPCs.
+>
+> - See: /docs/guides/frontend-config
 
 ## ABI Notes (OFT)
 - OFT `SendParam` (struct): `(uint32 dstEid, bytes32 to, uint256 amountLD, uint256 minAmountLD, bytes extraOptions, bytes composeMsg, bytes oftCmd)`
@@ -80,15 +61,8 @@ cast send $TOKEN "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint2
 cast call 0x69821FFA2312253209FdabB3D84f034B697E7777 "balanceOf(address)" $TO --rpc-url $RPC_URL_ARBITRUM
 ```
 
-## Current Known Addresses
-- Token: `0x69821FFA2312253209FdabB3D84f034B697E7777` (all chains)
-- Registry: `0x6949936442425f4137807Ac5d269e6Ef66d50777` (all chains)
-- Sonic dependencies:
-  - JackpotVault: `0x09a5d89539fdd07f779a3ddc3a985d0a757b4d7b`
-  - RevenueDistributor: `0x4b0b4a25844744bbb23424533ca5a7f6dfaaba57`
-- Arbitrum dependencies:
-  - JackpotVault: `0x21f2c71190330d8e6ececb411f05195874274dc9`
-  - RevenueDistributor: `0x8b89562e46502fc31addcace5b99367083c5c0c1`
+## Addresses
+See: /docs/guides/frontend-config (single source of truth)
 
 ## UX Notes
 - Bridge flow: select destination chain → quote fee → send → show pending status → poll destination balance

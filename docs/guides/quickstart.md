@@ -23,27 +23,11 @@ npm install ethers
 npm install wagmi viem @tanstack/react-query
 ```
 
-## 2. Contract Addresses
+## 2. Addresses & EIDs (single source)
 
-Copy these verified contract addresses for your integration:
+Use the Frontend Config cheat sheet for all constants (token/registry, EIDs, RPCs, VRF):
 
-```javascript
-// Red Dragon Token Contract Addresses
-const DRAGON_CONTRACTS = {
-  sonic: "0x6949936442425f4137807Ac5d269e6Ef66d50777",
-  arbitrum: "0x6949936442425f4137807Ac5d269e6Ef66d50777", 
-  ethereum: "0x6949936442425f4137807Ac5d269e6Ef66d50777",
-  base: "0x6949936442425f4137807Ac5d269e6Ef66d50777",
-  avalanche: "0x6949936442425f4137807Ac5d269e6Ef66d50777"
-};
-
-// VRF Integrator Addresses  
-const VRF_CONTRACTS = {
-  sonic: "0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5",
-  arbitrum: "0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5",
-  ethereum: "0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5"
-};
-```
+- See: /docs/guides/frontend-config
 
 ## 3. Basic Token Integration
 
@@ -65,11 +49,8 @@ async function getDragonBalance(userAddress, chainId = 'sonic') {
   const provider = new ethers.JsonRpcProvider(getRpcUrl(chainId));
   
   // Create contract instance
-  const contract = new ethers.Contract(
-    DRAGON_CONTRACTS[chainId], 
-    ERC20_ABI, 
-    provider
-  );
+  // Import DRAGON_ADDRESS from the Frontend Config cheat sheet
+  const contract = new ethers.Contract(DRAGON_ADDRESS, ERC20_ABI, provider);
   
   try {
     const balance = await contract.balanceOf(userAddress);
@@ -103,11 +84,8 @@ async function sendDragon(recipientAddress, amount, chainId = 'sonic') {
   const signer = await provider.getSigner();
   
   // Create contract instance with signer
-  const contract = new ethers.Contract(
-    DRAGON_CONTRACTS[chainId], 
-    ERC20_ABI, 
-    signer
-  );
+  // Import DRAGON_ADDRESS from the Frontend Config cheat sheet
+  const contract = new ethers.Contract(DRAGON_ADDRESS, ERC20_ABI, signer);
   
   try {
     // Convert amount to wei (18 decimals for DRAGON)
