@@ -22,6 +22,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
+      id: 'guides/frontend-config',
+      label: 'Frontend Config',
+    },
+    {
+      type: 'doc',
       id: 'omnidragon-project-status',
       label: 'Project Status',
     },
