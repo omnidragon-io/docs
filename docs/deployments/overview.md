@@ -7,11 +7,14 @@ This page contains deployment information for the OmniDragon OFT token and cross
 
 ## OmniDRAGON (OFT) – Token
 
-DRAGON address (all chains): `0x6949936442425f4137807Ac5d269e6Ef66d50777`
+DRAGON address (all chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
 
 ### LayerZero V2 EIDs
-- Sonic: 30272
+- Ethereum: 30101
 - Arbitrum: 30110
+- Avalanche: 30106
+- Base: 30184
+- Sonic: 30332
 
 ### Core Dependencies (for fee distribution)
 
@@ -139,10 +142,10 @@ Fees vary based on:
 - Network: Arbitrum
 
 ### LayerZero V2
-- Sonic EID: 30272
+- Sonic EID: 30332
 - Arbitrum EID: 30110  
 - Peers: Configured bidirectionally
-- Enforced Options: 200k gas limit
+- Enforced receive gas removed; use dynamic quotes (extraOptions can be `0x`)
 
 ## Verification
 
@@ -152,7 +155,7 @@ All contracts are verified on their respective block explorers:
 - [Arbitrum VRF Consumer](https://arbiscan.io/address/0x697a9d438a5b61ea75aa823f98a85efb70fd23d5)
 - [Ethereum VRF Integrator](https://etherscan.io/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
 - [BSC VRF Integrator](https://bscscan.com/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
-- [Avalanche VRF Integrator](https://snowscan.xyz/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
+- [Avalanche VRF Integrator](https://snowtrace.io/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
 
 ## Integration
 

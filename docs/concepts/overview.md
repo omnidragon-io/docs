@@ -18,7 +18,7 @@ Red Dragon combines three powerful technologies to create a unified cross-chain 
 
 ```javascript
 // Same address on all chains
-const DRAGON_ADDRESS = "0x6949936442425f4137807Ac5d269e6Ef66d50777";
+const DRAGON_ADDRESS = "0x69821FFA2312253209FdabB3D84f034B697E7777";
 
 // Transfer from Sonic to Arbitrum (example)
 await dragonContract.send(
