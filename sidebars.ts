@@ -32,7 +32,9 @@ const sidebars: SidebarsConfig = {
       items: [
         'concepts/overview',
         'contracts/overview',
+        'deployments/overview',
         'integrations',
+        'guides/frontend-integration',
       ],
     },
     {
