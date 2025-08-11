@@ -88,7 +88,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Concepts',
         },
         {
           to: '/docs/integrations/sonic-frontend-integration',
