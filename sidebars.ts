@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         { type: 'doc', id: 'guides/quickstart', label: 'Quick Start' },
-        { type: 'doc', id: 'integrations/sonic-frontend-integration', label: 'Frontend Config — Sonic' },
+        { type: 'doc', id: 'integrations/sonic-frontend-integration', label: 'Frontend' },
       ],
     },
     { type: 'doc', id: 'omnidragon-project-status', label: 'Current Status' },
