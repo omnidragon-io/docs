@@ -22,11 +22,11 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - **DRAGON (OFT V2)**: `0x69821FFA2312253209FdabB3D84f034B697E7777` (same on all chains)
 - **OmniDragonRegistry**: `0x6949936442425f4137807Ac5d269e6Ef66d50777` (same on all chains)
 - **OmniDragonPriceOracle**: `0x69aaB98503216E16EC72ac3F4B8dfc900cC27777` (all chains)
-- **OmniDragonPrimaryOracle (Sonic-only)**: `0x69773eC63Bf4b8892fDEa30D07c91E205866e777`
-- **veDRAGON**: `0x6982e7747b0f833C2c5b07aD45D228734c145777` (all chains)
-- **DragonJackpotVault**: `0x69352F6940529E00ccc6669606721b07BC659777` (all chains)
-- **OmniDragonLotteryManager (Sonic-only)**: `0x69906Fc8e0aA3cAbb184D99dF34EcE7e03769777`
-- **redDRAGON (ERC-4626 Vault, Sonic)**: `0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1`
+- **OmniDragonPrimaryOracle (Sonic-only)**: see `deployments/sonic/OmniDragonPrimaryOracle.json`
+- **veDRAGON (Sonic)**: `0x69f9d14a337823fad783d21f3669e29088e45777`
+- **DragonJackpotVault (Sonic)**: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
+- **OmniDragonLotteryManager (Sonic-only)**: `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
+- **redDRAGON (ERC-4626 Vault, Sonic)**: `0x69320eb5b9161a34cb9cdd163419f826691a1777`
 - **CREATE2 Factory**: `0xAA28020DDA6b954D16208eccF873D79AC6533833`
 
 ### LayerZero V2 Settings

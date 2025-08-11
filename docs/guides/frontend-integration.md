@@ -25,7 +25,7 @@ Links: see Quick Start
 ```ts
 import { ethers } from 'ethers'
 
-const TOKEN = '0x69821FFA2312253209FdabB3D84f034B697E7777'
+const TOKEN = '0x69dc1c36f8b26db3471acf0a6469d815e9a27777'
 const user = '0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F'
 const dstEid = 30110 // Arbitrum
 const amount = ethers.parseUnits('69420', 18)
@@ -51,7 +51,7 @@ await tx.wait()
 
 ## Minimal Example (Foundry cast)
 ```bash
-TOKEN=0x69821FFA2312253209FdabB3D84f034B697E7777
+TOKEN=0x69dc1c36f8b26db3471acf0a6469d815e9a27777
 TO=0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F
 TO_B32=0x000000000000000000000000ddd0050d1e084dfc72d5d06447cc10bcd3fef60f
 DST=30110
@@ -64,7 +64,7 @@ cast send $TOKEN "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint2
 
 ## Confirming Credit (destination)
 ```bash
-cast call 0x69821FFA2312253209FdabB3D84f034B697E7777 "balanceOf(address)" $TO --rpc-url $RPC_URL_ARBITRUM
+cast call 0x69dc1c36f8b26db3471acf0a6469d815e9a27777 "balanceOf(address)" $TO --rpc-url $RPC_URL_ARBITRUM
 ```
 
 ## Addresses

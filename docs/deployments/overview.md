@@ -20,7 +20,7 @@ DRAGON address (all chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
 
 | Chain | DragonJackpotVault | veDRAGONRevenueDistributor |
 |------|---------------------|----------------------------|
-| Sonic | `0x09a5d89539fdd07f779a3ddc3a985d0a757b4d7b` | `0x4b0b4a25844744bbb23424533ca5a7f6dfaaba57` |
+| Sonic | `0x69ec31a869c537749af7fd44dd1fd347d62c7777` | `0x6960cd77b3628b77d06871f114cde980434fa777` |
 | Arbitrum | `0x21f2c71190330d8e6ececb411f05195874274dc9` | `0x8b89562e46502fc31addcace5b99367083c5c0c1` |
 
 ### Bridge DRAGON (Foundry cast, correct OFT ABI)
@@ -90,22 +90,22 @@ Notes:
 - Registry: `0x6949936442425f4137807Ac5d269e6Ef66d50777`
 
 ### Deployed contracts and addresses
-- veDRAGON (vanity): `0x692f8BC5E1C0E90611d2807777bF079E2e401777`
+- veDRAGON (vanity): `0x69f9d14a337823fad783d21f3669e29088e45777`
   - Salt: `0x000000000000000000000000000000000000000000000000000000017488bef4`
   - Init: `initialize(REDDRAGON_SONIC, TokenType.LP_TOKEN)`
-- redDRAGON vault (Sonic): `0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1`
-- OmniDragonLotteryManager (vanity): `0x69906Fc8e0aA3cAbb184D99dF34EcE7e03769777`
+- redDRAGON vault (Sonic): `0x69320eb5b9161a34cb9cdd163419f826691a1777`
+- OmniDragonLotteryManager (vanity): `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
   - Salt: `0x00000000000000000000000000000000000000000000000000000005d21f0ff9`
   - Constructor (updated): `(jackpotVault, veDRAGON, priceOracle, chainId)`
-- DragonJackpotVault: `0x69352F6940529E00ccc6669606721b07BC659777`
-- OmniDragonPriceOracle: `0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
-- DRAGON (omniDRAGON): `0x69821FFA2312253209FdabB3D84f034B697E7777`
+- DragonJackpotVault: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
+- OmniDragonPrimaryOracle: see `deployments/sonic/OmniDragonPrimaryOracle.json`
+- DRAGON (omniDRAGON): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 
 ### redDRAGON (ERC‑4626) vault details
 - Vault: `0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1` (name: “redDRAGON”, symbol: “rDRAGON”, 18 decimals)
 - Asset (LP token): `0xdD796689a646413d04ebCBCa3786900E57a49B6a`
 - token0: `0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38` (“wS”)
-- token1: `0x69821FFA2312253209FdabB3D84f034B697E7777` (“DRAGON”)
+- token1: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777` (“DRAGON”)
 
 ### LotteryManager refactor (important)
 - Removed jackpotDistributor. Now:
@@ -120,22 +120,22 @@ Notes:
 - Added `script/DeployVanityLotteryManager.s.sol` to deploy via factory with `SALT_LOTTERY`
 
 ### Post-deploy configuration (on-chain)
-- `setRedDRAGONToken(0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1)`
+- `setRedDRAGONToken(0x69320eb5b9161a34cb9cdd163419f826691a1777)`
 - `setVRFIntegrator(0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)`
-- `setDragonToken(0x69821FFA2312253209FdabB3D84f034B697E7777)`
+- `setDragonToken(0x69dc1c36f8b26db3471acf0a6469d815e9a27777)`
 - Authorized swap callers:
   - `setAuthorizedSwapContract(DRAGON, true)`
   - `setAuthorizedSwapContract(redDRAGON, true)`
 - Deauthorized LP pair: `setAuthorizedSwapContract(0xdD7966…B6a, false)`
 
 ### Environment updates (.env)
-- `VEDRAGON=0x692f8BC5E1C0E90611d2807777bF079E2e401777`
-- `LOTTERY_MANAGER_ADDRESS=0x69906Fc8e0aA3cAbb184D99dF34EcE7e03769777`
-- `JACKPOT_VAULT_ADDRESS=0x69352F6940529E00ccc6669606721b07BC659777`
+- `VEDRAGON=0x69f9d14a337823fad783d21f3669e29088e45777`
+- `LOTTERY_MANAGER_ADDRESS=0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
+- `JACKPOT_VAULT_ADDRESS=0x69ec31a869c537749af7fd44dd1fd347d62c7777`
 - `VANITY_SALT=0x00000000000000000000000000000000000000000000000000000005d21f0ff9`
 - `CREATE2_FACTORY_ADDRESS=0xAA28020DDA6b954D16208eccF873D79AC6533833`
 - `REGISTRY_ADDRESS=0x6949936442425f4137807Ac5d269e6Ef66d50777`
-- `OMNIDRAGON_ADDRESS=0x69821FFA2312253209FdabB3D84f034B697E7777`
+- `OMNIDRAGON_ADDRESS=0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 - `RPC_URL_SONIC=…` (already set)
 
 ### Deployment records
@@ -198,8 +198,8 @@ Notes:
   - Authorized callers: DRAGON (authorized), redDRAGON (authorized)
   - LP pair `0xdD7966…B6a`: NOT authorized (explicitly deauthorized)
 
-#### Price oracle setup (OmniDragonPriceOracle)
-- Oracle address: `0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
+#### Price oracle setup (OmniDragonPrimaryOracle)
+- Oracle address: see `deployments/sonic/OmniDragonPrimaryOracle.json`
 - Feeds configured:
   - Chainlink (S/USD): `0xc76dFb89fF298145b417d221B2c747d84952e01d`
   - Band (DRAGON/USD): `0x506085050Ea5494Fe4b89Dd5BEa659F506F470Cc` (may return not-available; aggregator excludes invalid)

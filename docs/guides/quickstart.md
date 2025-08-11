@@ -27,7 +27,7 @@ npm install wagmi viem @tanstack/react-query
 
 ```javascript
 // DRAGON token address (same on all supported chains)
-export const DRAGON_ADDRESS = '0x69821FFA2312253209FdabB3D84f034B697E7777';
+export const DRAGON_ADDRESS = '0x69dc1c36f8b26db3471acf0a6469d815e9a27777';
 
 // Minimal RPC map for quick testing
 export function getRpcUrl(chainId) {
