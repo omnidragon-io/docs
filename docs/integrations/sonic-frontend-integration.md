@@ -47,27 +47,7 @@ description: Single-page frontend cheat sheet for integrating OmniDragon on Soni
   - Band: `0x5060…70Cc` (active)
   - API3: `0x726D…5918` (weight = 0 currently)
   - Pyth: `0x2880…7B43` with `priceId 0xf490…2d6d` (active)
-- Use `timestamp`/freshness flags in the UI.
-
-#### Minimal reads (TypeScript)
-
-```ts
-import { ethers } from 'ethers';
-import lmDeployment from '../../deployments/sonic/OmniDragonLotteryManager.json';
-
-const provider = new ethers.JsonRpcProvider(process.env.RPC_URL_SONIC!);
-const lm = new ethers.Contract(lmDeployment.address, lmDeployment.abi, provider);
-
-// DRAGON price, 18 decimals
-const { 0: price18 } = await lm.getDragonPriceUSD();
-const price = Number(price18) / 1e18;
-
-// User probabilities for a given USD amount (6 decimals)
-const usd6 = 5_00_000; // $500.000 (example: 6 decimals)
-const [basePPM, boostedPPM] = await lm.calculateWinProbability('0xUser', usd6);
-const basePct = basePPM / 1e4;    // percent
-const boostedPct = boostedPPM / 1e4; // percent
-```
+- Use `timestamp`/freshness flags in the UI. For reads, prefer the viem helpers below (`fetchDragonPrice18`, `fetchUserProbabilities`).
 
 ### Viem client and helpers (ready to paste)
 
@@ -194,7 +174,7 @@ export async function fetchJackpotAndUser(user: `0x${string}`) {
 - `getPartnerProbabilityBoost(partnerId) → bps`
 - `calculatePartnersBoost()` can be triggered by anyone (time-gated)
 
-### Partner Registry and Gauges
+### Partners & Gauges
 
 - **Registry (`DragonGaugeRegistry`)**
   - `getPartnerCount()`
@@ -208,7 +188,7 @@ export async function fetchJackpotAndUser(user: `0x${string}`) {
   - Total budget: 6.9% (690 bps)
   - Per-partner share = `690 bps × relativeWeight / 1e18` (e.g., 60%/40% → 4.14%/2.76%)
 
-### Current Partners (Sonic)
+#### Current Partners (Sonic)
 
 - **GOOD**: `0xb5a43c1C8B346B9C6FD8E4Afb8871c940B36e279`
 - **ffDRAGON**: `0x40f531123bce8962d9cea52a3b150023bef488ed`
@@ -232,30 +212,7 @@ export async function fetchJackpotAndUser(user: `0x${string}`) {
 - Forwards any native received to `JackpotVault`
 - `getStats() → (totalFeeMRevenue, totalForwarded, pending, lastForwardTime)`
 
-### Frontend Integration Patterns (pseudocode)
 
-```ts
-// DRAGON price (18 decimals)
-const price18 = (await lm.getDragonPriceUSD())[0];
-display(price18 / 1e18);
-
-// User probabilities
-const [basePPM, boostedPPM] = await lm.calculateWinProbability(user, usd6);
-display(basePPM / 1e4, boostedPPM / 1e4); // percentages
-
-// Partners list
-const n = await registry.getPartnerCount();
-for (let i = 0; i < n; i++) {
-  const addr = await registry.partnerList(i);
-  const details = await registry.getPartnerDetails(addr);
-}
-
-// Gauge weights
-const gaugeId = ethers.keccak256(ethers.toUtf8Bytes('partner:' + addr));
-const rel = await controller.getRelativeWeight(gaugeId, Math.floor(Date.now() / 1000));
-const relPct = Number(rel) / 1e16; // 2 decimals percent
-const partnerBudgetBps = 690 * Number(rel) / 1e18;
-```
 
 ### Minimal OFT Send (ethers.js)
 
