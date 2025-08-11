@@ -15,6 +15,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   // Red Dragon documentation sidebar - simplified structure
   tutorialSidebar: [
+    { type: 'doc', id: 'integrations/sonic-frontend-integration', label: 'Frontend Config — Sonic ✅' },
     { type: 'doc', id: 'guides/quickstart', label: 'Quick Start' },
     { type: 'doc', id: 'omnidragon-project-status', label: 'Current Status' },
     { type: 'doc', id: 'contracts/overview', label: 'Contracts' },
