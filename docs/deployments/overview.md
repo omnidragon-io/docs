@@ -7,7 +7,7 @@ This page contains deployment information for the OmniDragon OFT token and cross
 
 ## OmniDRAGON (OFT) – Token
 
-DRAGON address (all chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
+DRAGON (Sonic): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 
 ### LayerZero V2 EIDs
 - Ethereum: 30101
@@ -28,7 +28,7 @@ DRAGON address (all chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
 1) Quote fee (example Sonic → Arbitrum 69,420 DRAGON):
 
 ```bash
-TOKEN=0x69821FFA2312253209FdabB3D84f034B697E7777
+TOKEN=0x69dc1c36f8b26db3471acf0a6469d815e9a27777
 TO=0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F
 TO_B32=0x000000000000000000000000ddd0050d1e084dfc72d5d06447cc10bcd3fef60f
 DST=30110 # Arbitrum EID
@@ -102,7 +102,7 @@ Notes:
 - DRAGON (omniDRAGON): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 
 ### redDRAGON (ERC‑4626) vault details
-- Vault: `0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1` (name: “redDRAGON”, symbol: “rDRAGON”, 18 decimals)
+- Vault: `0x69320eb5b9161a34cb9cdd163419f826691a1777` (name: “redDRAGON”, symbol: “rDRAGON”, 18 decimals)
 - Asset (LP token): `0xdD796689a646413d04ebCBCa3786900E57a49B6a`
 - token0: `0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38` (“wS”)
 - token1: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777` (“DRAGON”)
@@ -166,24 +166,23 @@ Notes:
 
 #### Vanity deployments
 - veDRAGON
-  - Address: `0x692f8BC5E1C0E90611d2807777bF079E2e401777`
+  - Address: `0x69f9d14a337823fad783d21f3669e29088e45777`
   - Salt: `0x000000000000000000000000000000000000000000000000000000017488bef4`
   - Script updated: `script/DeployVanityCore.s.sol` (SALT_VEDRAGON)
   - Initialized on Sonic with redDRAGON (TokenType.LP_TOKEN)
 - OmniDragonLotteryManager
-  - Address: `0x69906Fc8e0aA3cAbb184D99dF34EcE7e03769777`
+  - Address: `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
   - Salt: `0x00000000000000000000000000000000000000000000000000000005d21f0ff9`
   - Bytecode hash (vanity search): `0x17b17fc7a355d397d4499ca969d6a42f2a42f5043236ce4942d8c5579d909d0b`
   - Deployment script: `script/DeployVanityLotteryManager.s.sol`
   - Vanity salt derived via Rust generator and deployed
 
-#### Token and vaults
-- DRAGON (omniDRAGON): `0x69821FFA2312253209FdabB3D84f034B697E7777`
-- redDRAGON (ERC‑4626 LP vault): `0x15764db292E02BDAdba1EdFd55A3b19bbf4a0BD1`
+- DRAGON (omniDRAGON): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
+- redDRAGON (ERC‑4626 LP vault): `0x69320eb5b9161a34cb9cdd163419f826691a1777`
 - Asset (LP): `0xdD796689a646413d04ebCBCa3786900E57a49B6a`
 - token0: `0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38` (“wS”)
-- token1: `0x69821FFA2312253209FdabB3D84f034B697E7777` (“DRAGON”)
-- DragonJackpotVault: `0x69352F6940529E00ccc6669606721b07BC659777`
+- token1: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777` (“DRAGON”)
+- DragonJackpotVault: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
 
 #### LotteryManager refactor and configuration
 - Code changes in `contracts/core/lottery/OmniDragonLotteryManager.sol`:
@@ -218,15 +217,15 @@ Notes:
 - Added: `script/DeployVanityLotteryManager.s.sol` (CREATE2 vanity deploy)
 - Updated: `script/DeployLotteryManager.s.sol` to pass `JACKPOT_VAULT` (not distributor)
 
-#### Environment and records
+- #### Environment and records
 - `.env` updated:
-  - `VEDRAGON=0x692f8BC5E1C0E90611d2807777bF079E2e401777`
-  - `LOTTERY_MANAGER_ADDRESS=0x69906Fc8e0aA3cAbb184D99dF34EcE7e03769777`
-  - `JACKPOT_VAULT_ADDRESS=0x69352F6940529E00ccc6669606721b07BC659777`
+  - `VEDRAGON=0x69f9d14a337823fad783d21f3669e29088e45777`
+  - `LOTTERY_MANAGER_ADDRESS=0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
+  - `JACKPOT_VAULT_ADDRESS=0x69ec31a869c537749af7fd44dd1fd347d62c7777`
   - `VANITY_SALT=0x00000000000000000000000000000000000000000000000000000005d21f0ff9`
   - `CREATE2_FACTORY_ADDRESS=0xAA28020DDA6b954D16208eccF873D79AC6533833`
   - `REGISTRY_ADDRESS=0x6949936442425f4137807Ac5d269e6Ef66d50777`
-  - `OMNIDRAGON_ADDRESS=0x69821FFA2312253209FdabB3D84f034B697E7777`
+  - `OMNIDRAGON_ADDRESS=0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 - Deployment record: `deployments/sonic/OmniDragonLotteryManager.json` with constructor args and salt
 
 #### Front-end integration notes
