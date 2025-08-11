@@ -19,7 +19,7 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - **Sonic**: chainId 146, EID 30332, Explorer: `https://sonicscan.org`
 
 ### Core Contracts (Vanity Addresses)
-- **DRAGON (OFT V2)**: `0x69821FFA2312253209FdabB3D84f034B697E7777` (same on all chains)
+- **DRAGON (Sonic)**: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 - **OmniDragonRegistry**: `0x6949936442425f4137807Ac5d269e6Ef66d50777` (same on all chains)
 - **OmniDragonPriceOracle**: `0x69aaB98503216E16EC72ac3F4B8dfc900cC27777` (all chains)
 - **OmniDragonPrimaryOracle (Sonic-only)**: see `deployments/sonic/OmniDragonPrimaryOracle.json`
@@ -48,9 +48,9 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - Avalanche: PriceOracle & Vault already verified; veDRAGON verified (Sourcify)
 
 Useful explorer links:
-- Sonic PrimaryOracle: `https://sonicscan.org/address/0x69773eC63Bf4b8892fDEa30D07c91E205866e777`
-- Sonic veDRAGON: `https://sonicscan.org/address/0x6982e7747b0f833c2c5b07ad45d228734c145777`
-- Sonic Vault: `https://sonicscan.org/address/0x69352F6940529E00ccc6669606721b07bc659777`
+- Sonic PrimaryOracle: see `deployments/sonic/OmniDragonPrimaryOracle.json`
+- Sonic veDRAGON: `https://sonicscan.org/address/0x69f9d14a337823fad783d21f3669e29088e45777`
+- Sonic Vault: `https://sonicscan.org/address/0x69ec31a869c537749af7fd44dd1fd347d62c7777`
 - PriceOracle (common):
   - Ethereum: `https://etherscan.io/address/0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
   - Arbitrum: `https://arbiscan.io/address/0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
@@ -63,7 +63,7 @@ Useful explorer links:
 
 #### Quote + Send (example Sonic → Arbitrum 69,420 DRAGON)
 ```bash
-TOKEN=0x69821FFA2312253209FdabB3D84f034B697E7777
+TOKEN=0x69dc1c36f8b26db3471acf0a6469d815e9a27777
 TO=0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F
 TO_B32=0x000000000000000000000000ddd0050d1e084dfc72d5d06447cc10bcd3fef60f
 DST=30110
@@ -118,7 +118,7 @@ Reference: [Frontend Integration](/docs/guides/frontend-integration). Key points
 
 ### DRAGON Token (ERC-20)
 
-DRAGON address (same on all supported chains): `0x69821FFA2312253209FdabB3D84f034B697E7777`
+DRAGON (Sonic) address: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 
 ```javascript
 // Essential ERC-20 functions for frontend integration
