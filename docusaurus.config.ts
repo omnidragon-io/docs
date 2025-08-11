@@ -91,6 +91,11 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          to: '/docs/integrations/sonic-frontend-integration',
+          position: 'left',
+          label: 'Frontend Config',
+        },
+        {
           href: 'https://github.com/lzreddragon/docs',
           label: 'GitHub',
           position: 'right',
