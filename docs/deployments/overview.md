@@ -95,23 +95,21 @@ Notes:
 - Factory (CREATE2): `0xAA28020DDA6b954D16208eccF873D79AC6533833`
 - Registry: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 
-### Deployed contracts and addresses
-- veDRAGON (vanity): `0x69f9d14a337823fad783d21f3669e29088e45777`
-  - Salt: `0x000000000000000000000000000000000000000000000000000000017488bef4`
+### Deployed contracts
+- veDRAGON (vanity) — see Reference → Addresses (Sonic)
   - Init: `initialize(REDDRAGON_SONIC, TokenType.LP_TOKEN)`
-- redDRAGON vault (Sonic): `0x69320eb5b9161a34cb9cdd163419f826691a1777`
-- OmniDragonLotteryManager (vanity): `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
-  - Salt: `0x00000000000000000000000000000000000000000000000000000005d21f0ff9`
-  - Constructor (updated): `(jackpotVault, veDRAGON, priceOracle, chainId)`
-- DragonJackpotVault: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
-- OmniDragonPrimaryOracle: `0x175c9571771894e151317e80d7b4434e1f583d59`
-- DRAGON (omniDRAGON): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
+- redDRAGON (ERC‑4626 vault) — see Reference → Addresses (Sonic)
+- OmniDragonLotteryManager (vanity) — see Reference → Addresses (Sonic)
+  - Constructor: `(jackpotVault, veDRAGON, priceOracle, chainId)`
+- DragonJackpotVault — see Reference → Addresses (Sonic)
+- OmniDragonPrimaryOracle — see Reference → Addresses (Sonic)
+- DRAGON (omniDRAGON) — see Reference → Addresses (Sonic)
 
 ### redDRAGON (ERC‑4626) vault details
-- Vault: `0x69320eb5b9161a34cb9cdd163419f826691a1777` (name: “redDRAGON”, symbol: “rDRAGON”, 18 decimals)
+- Vault: see Reference → Addresses (Sonic) (name: “redDRAGON”, symbol: “rDRAGON”, 18 decimals)
 - Asset (LP token): `0xdD796689a646413d04ebCBCa3786900E57a49B6a`
 - token0: `0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38` (“wS”)
-- token1: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777` (“DRAGON”)
+- token1: see Reference → Addresses (Sonic) (“DRAGON”)
 
 ### LotteryManager refactor (important)
 - Removed jackpotDistributor. Now:
@@ -188,7 +186,7 @@ Notes:
 - Asset (LP): `0xdD796689a646413d04ebCBCa3786900E57a49B6a`
 - token0: `0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38` (“wS”)
 - token1: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777` (“DRAGON”)
-- DragonJackpotVault: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
+- DragonJackpotVault: see Reference → Addresses (Sonic)
 
 #### LotteryManager refactor and configuration
 - Code changes in `contracts/core/lottery/OmniDragonLotteryManager.sol`:

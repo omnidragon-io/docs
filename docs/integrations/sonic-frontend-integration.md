@@ -12,23 +12,11 @@ description: Single-page frontend cheat sheet for integrating OmniDragon on Soni
 
 ### Addresses (Sonic)
 
-- **omniDRAGON (ERC-20)**: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
-- **redDRAGON (ERC-4626)**: `0x69320eb5b9161a34cb9cdd163419f826691a1777`
-- **veDRAGON (ERC-20)**: `0x69f9d14a337823fad783d21f3669e29088e45777`
-- **OmniDragonJackpotVault**: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
-- **veDRAGONRevenueDistributor**: `0x6960cd77b3628b77d06871f114cde980434fa777`
-- **veDRAGONBoostManager**: `0x620893426c6737e6507a92d060a0a7cd8fb7c1f5`
-- **PartnerBribeDistributor**: `0xbc68de87eC01f4c70Cd0949f94b3E97aa115C9a1`
-- **GaugeController**: `0x69b0d9c5e74413a7d2c7d3d680fe1289c311e777`
-- **DragonGaugeRegistry**: `0x698402021a594515f5a379f6c4e77d3e1f452777`
-- **OmniDragonPrimaryOracle**: `0x175c9571771894e151317e80d7b4434e1f583d59`
-- **OmniDragonLotteryManager**: `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
-- **DragonFeeMHelper**: `0xc47c9cabae8a6425f01f5769eda470e1d01e9fbf`
+See Reference → Addresses (Sonic) for the canonical list, or import `docs/_data/sonic.addresses.json`.
 
 ### ABIs
 
-- **Preferred**: use the `abi` embedded in `deployments/sonic/*.json`
-- **Fallback**: artifacts in `out/<ContractFile>/<ContractName>.json` (field `.abi`)
+- Preferred: use contract `abi` from your deployments JSON or verified explorer; fallback to artifacts in `out/<ContractFile>/<ContractName>.json` (`.abi`).
 
 ### Units and Conventions
 
