@@ -8,7 +8,7 @@ description: Single-page frontend cheat sheet for integrating OmniDragon on Soni
 - **Network**: Sonic mainnet
 - **Chain ID**: 146
 - **RPC**: configure via env `RPC_URL_SONIC`
-- **Source of truth (addresses/ABIs)**: files in `deployments/sonic/*.json`
+- **Source of truth**: see `Reference → Addresses (Sonic)` and `docs/_data/sonic.addresses.json`
 
 ### Addresses (Sonic)
 

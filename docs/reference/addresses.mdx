@@ -1,0 +1,89 @@
+---
+title: Addresses — Sonic
+sidebar_position: 30
+---
+
+import sonic from '../_data/sonic.addresses.json';
+
+### Sonic — Canonical Addresses
+
+All frontend and docs should reference this page or read directly from the JSON. Do not hardcode elsewhere.
+
+#### Tokens
+
+```json
+{ "omniDRAGON": sonic.Tokens.omniDRAGON, "redDRAGON": sonic.Tokens.redDRAGON, "veDRAGON": sonic.Tokens.veDRAGON }
+```
+
+#### Lottery
+
+```json
+{
+  "OmniDragonPrimaryOracle": sonic.Lottery.OmniDragonPrimaryOracle,
+  "OmniDragonLotteryManager": sonic.Lottery.OmniDragonLotteryManager,
+  "OmniDragonJackpotVault": sonic.Lottery.OmniDragonJackpotVault,
+  "DragonFeeMHelper": sonic.Lottery.DragonFeeMHelper
+}
+```
+
+#### VRF
+
+```json
+{
+  "ChainlinkVRFIntegratorV2_5_Sonic": sonic.VRF.ChainlinkVRFIntegratorV2_5_Sonic,
+  "OmniDragonVRFConsumerV2_5_Arbitrum": sonic.VRF.OmniDragonVRFConsumerV2_5_Arbitrum
+}
+```
+
+#### Revenue & Bribes
+
+```json
+{
+  "veDRAGONRevenueDistributor": sonic.RevenueAndBribes.veDRAGONRevenueDistributor,
+  "PartnerBribeDistributor": sonic.RevenueAndBribes.PartnerBribeDistributor
+}
+```
+
+#### Gauge & Voting
+
+```json
+{
+  "GaugeController": sonic.Gauge.GaugeController,
+  "DragonGaugeRegistry": sonic.Gauge.DragonGaugeRegistry,
+  "veDRAGONBoostManager": sonic.Voting.veDRAGONBoostManager,
+  "VotingPowerCalculator": sonic.Voting.VotingPowerCalculator
+}
+```
+
+#### Infra & Libraries
+
+```json
+{
+  "CREATE2FactoryWithOwnership": sonic.CREATE2FactoryWithOwnership,
+  "Registry": sonic.Registry,
+  "veDRAGONMath": sonic.Libraries.veDRAGONMath,
+  "UniswapV2LP": sonic.Pool.UniswapV2LP
+}
+```
+
+---
+
+### Usage examples
+
+#### TypeScript (build-time import)
+
+```ts
+import sonic from '../_data/sonic.addresses.json';
+
+export const ADDRESSES = sonic;
+export const DRAGON = sonic.Tokens.omniDRAGON as `0x${string}`;
+```
+
+#### Runtime fetch (optional)
+
+```ts
+const res = await fetch('/docs/_data/sonic.addresses.json');
+const sonic = await res.json();
+```
+
+

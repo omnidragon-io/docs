@@ -40,6 +40,7 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: 'doc', id: 'contracts/overview', label: 'Contracts' },
         { type: 'doc', id: 'deployments/overview', label: 'Deployments' },
+        { type: 'doc', id: 'reference/addresses', label: 'Addresses (Sonic)' },
       ],
     },
   ],
