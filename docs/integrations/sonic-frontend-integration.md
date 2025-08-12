@@ -21,9 +21,9 @@ description: Single-page frontend cheat sheet for integrating OmniDragon on Soni
 - **PartnerBribeDistributor**: `0xbc68de87eC01f4c70Cd0949f94b3E97aa115C9a1`
 - **GaugeController**: `0x69b0d9c5e74413a7d2c7d3d680fe1289c311e777`
 - **DragonGaugeRegistry**: `0x698402021a594515f5a379f6c4e77d3e1f452777`
-- **OmniDragonPrimaryOracle**: see `deployments/sonic/OmniDragonPrimaryOracle.json`
+- **OmniDragonPrimaryOracle**: `0x175c9571771894e151317e80d7b4434e1f583d59`
 - **OmniDragonLotteryManager**: `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
-- **DragonFeeMHelper**: see `deployments/sonic/DragonFeeMHelper.json`
+- **DragonFeeMHelper**: `0xc47c9cabae8a6425f01f5769eda470e1d01e9fbf`
 
 ### ABIs
 

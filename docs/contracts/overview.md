@@ -20,9 +20,9 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 
 ### Core Contracts (Vanity Addresses)
 - **DRAGON (Sonic)**: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
-- **OmniDragonRegistry**: `0x6949936442425f4137807Ac5d269e6Ef66d50777` (same on all chains)
+- **OmniDragonRegistry (Sonic)**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 - **OmniDragonPriceOracle**: `0x69aaB98503216E16EC72ac3F4B8dfc900cC27777` (all chains)
-- **OmniDragonPrimaryOracle (Sonic-only)**: see `deployments/sonic/OmniDragonPrimaryOracle.json`
+- **OmniDragonPrimaryOracle (Sonic-only)**: `0x175c9571771894e151317e80d7b4434e1f583d59`
 - **veDRAGON (Sonic)**: `0x69f9d14a337823fad783d21f3669e29088e45777`
 - **DragonJackpotVault (Sonic)**: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
 - **OmniDragonLotteryManager (Sonic-only)**: `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
@@ -48,7 +48,7 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - Avalanche: PriceOracle & Vault already verified; veDRAGON verified (Sourcify)
 
 Useful explorer links:
-- Sonic PrimaryOracle: see `deployments/sonic/OmniDragonPrimaryOracle.json`
+- Sonic PrimaryOracle: `https://sonicscan.org/address/0x175c9571771894e151317e80d7b4434e1f583d59`
 - Sonic veDRAGON: `https://sonicscan.org/address/0x69f9d14a337823fad783d21f3669e29088e45777`
 - Sonic Vault: `https://sonicscan.org/address/0x69ec31a869c537749af7fd44dd1fd347d62c7777`
 - PriceOracle (common):

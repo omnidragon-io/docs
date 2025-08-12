@@ -33,7 +33,7 @@ The OmniDRAGON project is **80% complete** with all critical infrastructure depl
 
 | Chain | Address | Status | Explorer |
 |-------|---------|---------|----------|
-| Sonic | `0x6949936442425f4137807Ac5d269e6Ef66d50777` | Deployed | [View](https://sonicscan.org/address/0x6949936442425f4137807Ac5d269e6Ef66d50777) |
+| Sonic | `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777` | Deployed | [View](https://sonicscan.org/address/0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777) |
 | Arbitrum | `0x6949936442425f4137807Ac5d269e6Ef66d50777` | Deployed | [View](https://arbiscan.io/address/0x6949936442425f4137807Ac5d269e6Ef66d50777) |
 | Ethereum | `0x6949936442425f4137807Ac5d269e6Ef66d50777` | Deployed | [View](https://etherscan.io/address/0x6949936442425f4137807Ac5d269e6Ef66d50777) |
 | Base | `0x6949936442425f4137807Ac5d269e6Ef66d50777` | Deployed | [View](https://basescan.org/address/0x6949936442425f4137807Ac5d269e6Ef66d50777) |
