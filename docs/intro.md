@@ -106,7 +106,7 @@ Get started building on Red Dragon with our comprehensive guides and API referen
 **Smart Contracts**  
 Explore our audited smart contracts and integration patterns.
 
-[Browse Contracts →](/docs/contracts/overview)
+[Architecture & Deployments →](/docs/deployments/overview)
 </div>
 
 <div className="quickstart-card">

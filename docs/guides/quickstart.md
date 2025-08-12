@@ -144,5 +144,5 @@ Handle errors per your app’s conventions. Common cases: user rejection (4001),
 ## Need Help?
 
 - **Block Explorers**: Check transactions on [Sonic Scan](https://sonicscan.org) or [Arbiscan](https://arbiscan.io)
-- **Contract ABIs**: Full ABIs available in [Contract Documentation](/docs/contracts/overview)
+- **Addresses**: See [Addresses (Sonic)](/docs/reference/addresses)
 - **Support**: Join our [Telegram](https://t.me/RedDragon) for developer support

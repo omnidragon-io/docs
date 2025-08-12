@@ -38,8 +38,7 @@ const sidebars: SidebarsConfig = {
       label: 'Reference',
       collapsed: false,
       items: [
-        { type: 'doc', id: 'contracts/overview', label: 'Contracts' },
-        { type: 'doc', id: 'deployments/overview', label: 'Deployments' },
+        { type: 'doc', id: 'deployments/overview', label: 'Architecture & Deployments' },
         { type: 'doc', id: 'reference/addresses', label: 'Addresses (Sonic)' },
       ],
     },
