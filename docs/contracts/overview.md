@@ -18,16 +18,8 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - **Base**: chainId 8453, EID 30184, Explorer: `https://basescan.org`
 - **Sonic**: chainId 146, EID 30332, Explorer: `https://sonicscan.org`
 
-### Core Contracts (Vanity Addresses)
-- **DRAGON (Sonic)**: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
-- **OmniDragonRegistry (Sonic)**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
-- **OmniDragonPriceOracle**: `0x69aaB98503216E16EC72ac3F4B8dfc900cC27777` (all chains)
-- **OmniDragonPrimaryOracle (Sonic-only)**: `0x175c9571771894e151317e80d7b4434e1f583d59`
-- **veDRAGON (Sonic)**: `0x69f9d14a337823fad783d21f3669e29088e45777`
-- **DragonJackpotVault (Sonic)**: `0x69ec31a869c537749af7fd44dd1fd347d62c7777`
-- **OmniDragonLotteryManager (Sonic-only)**: `0x69a6a2813c2224bbc34b3d0bf56c719de3c34777`
-- **redDRAGON (ERC-4626 Vault, Sonic)**: `0x69320eb5b9161a34cb9cdd163419f826691a1777`
-- **CREATE2 Factory**: `0xAA28020DDA6b954D16208eccF873D79AC6533833`
+### Core Contracts (by domain)
+- Tokens, Lottery, VRF, Gauges, Revenue/Bribes, Voting, and Infra are listed in Reference → Addresses (Sonic). Use that page or import the JSON; avoid hardcoding here.
 
 ### LayerZero V2 Settings
 - EIDs: Ethereum 30101, Arbitrum 30110, Avalanche 30106, Base 30184, Sonic 30332
@@ -48,54 +40,16 @@ Concise, copy-ready reference for updating public docs and frontend integration.
 - Avalanche: PriceOracle & Vault already verified; veDRAGON verified (Sourcify)
 
 Useful explorer links:
-- Sonic PrimaryOracle: `https://sonicscan.org/address/0x175c9571771894e151317e80d7b4434e1f583d59`
-- Sonic veDRAGON: `https://sonicscan.org/address/0x69f9d14a337823fad783d21f3669e29088e45777`
-- Sonic Vault: `https://sonicscan.org/address/0x69ec31a869c537749af7fd44dd1fd347d62c7777`
+- See Reference → Addresses (Sonic) for current links.
 - PriceOracle (common):
   - Ethereum: `https://etherscan.io/address/0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
   - Arbitrum: `https://arbiscan.io/address/0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
   - Base: `https://basescan.org/address/0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
   - Avalanche: `https://snowtrace.io/address/0x69aaB98503216E16EC72ac3F4B8dfc900cC27777`
 
-### Correct OFT V2 ABI (Frontend/CLI)
-- SendParam: `(uint32 dstEid, bytes32 to, uint256 amountLD, uint256 minAmountLD, bytes extraOptions, bytes composeMsg, bytes oftCmd)`
-- MessagingFee: `(uint256 nativeFee, uint256 lzTokenFee)`
-
-#### Quote + Send (example Sonic → Arbitrum 69,420 DRAGON)
-```bash
-TOKEN=0x69dc1c36f8b26db3471acf0a6469d815e9a27777
-TO=0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F
-TO_B32=0x000000000000000000000000ddd0050d1e084dfc72d5d06447cc10bcd3fef60f
-DST=30110
-AMOUNT=$(cast --to-wei 69420 ether)
-
-# quoteSend
-QUOTE=$(cast call $TOKEN \
-  "quoteSend((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),bool)" \
-  "($DST,$TO_B32,$AMOUNT,$AMOUNT,0x,0x,0x)" false \
-  --rpc-url $RPC_URL_SONIC)
-NATIVE_FEE_HEX=0x$(echo $QUOTE | sed 's/^0x//' | cut -c1-64)
-NATIVE_FEE=$(cast to-dec $NATIVE_FEE_HEX)
-
-# send
-cast send $TOKEN \
-  "send((uint32,bytes32,uint256,uint256,bytes,bytes,bytes),(uint256,uint256),address)" \
-  "($DST,$TO_B32,$AMOUNT,$AMOUNT,0x,0x,0x)" "($NATIVE_FEE,0)" $TO \
-  --value $NATIVE_FEE \
-  --rpc-url $RPC_URL_SONIC \
-  --private-key $PRIVATE_KEY
-```
-
-Notes:
-- Remove enforced extraOptions unless explicitly needed; use quotes to get actual cost.
-- If slippage causes revert, set `minAmountLD` slightly lower than `amountLD`.
-
-### LayerZero OFT API (for Frontend)
-Reference: [Frontend Integration](/docs/guides/frontend-integration). Key points to surface:
-- Use `/list` to discover token deployments by symbol
-- Use `/transfer` to obtain `populatedTransaction` and optional `approvalTransaction`
-- Chain names via `@layerzerolabs/lz-definitions` `Chain` constants
-- Provide LayerZero Scan link for tracking: `https://layerzeroscan.com/tx/<hash>`
+### OFT V2 and VRF references
+- Bridging and ABI details: see Deployments → Overview.
+- Frontend examples (viem/ethers) and UX notes: see Integrations → Frontend.
 
 ### Post-Deploy Configuration (already applied)
 - Registry `setLayerZeroEndpoint(uint16,address)` for all chains
@@ -117,8 +71,7 @@ Reference: [Frontend Integration](/docs/guides/frontend-integration). Key points
 ## Core Contracts
 
 ### DRAGON Token (ERC-20)
-
-DRAGON (Sonic) address: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
+Addresses: see Reference → Addresses (Sonic)
 
 ```javascript
 // Essential ERC-20 functions for frontend integration
@@ -149,8 +102,7 @@ const DRAGON_ABI = [
 - **Cross-Chain**: LayerZero V2 OFT compatible
 
 ### VRF Integrator
-
-**Deployed on select chains at:** `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
+Addresses: see Reference → Addresses (Sonic)
 
 ```javascript
 // VRF functions for lottery and randomness

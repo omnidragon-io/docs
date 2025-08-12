@@ -7,7 +7,7 @@ This page contains deployment information for the OmniDragon OFT token and cross
 
 ## OmniDRAGON (OFT) – Token
 
-DRAGON (Sonic): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
+DRAGON (Sonic): see Reference → Addresses (Sonic)
 
 ### LayerZero V2 EIDs
 - Ethereum: 30101
@@ -28,7 +28,7 @@ DRAGON (Sonic): `0x69dc1c36f8b26db3471acf0a6469d815e9a27777`
 1) Quote fee (example Sonic → Arbitrum 69,420 DRAGON):
 
 ```bash
-TOKEN=0x69dc1c36f8b26db3471acf0a6469d815e9a27777
+TOKEN=$(jq -r .Tokens.omniDRAGON docs/_data/sonic.addresses.json)
 TO=0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F
 TO_B32=0x000000000000000000000000ddd0050d1e084dfc72d5d06447cc10bcd3fef60f
 DST=30110 # Arbitrum EID
