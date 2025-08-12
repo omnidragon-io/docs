@@ -1,0 +1,25 @@
+name: Check hardcoded addresses
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  address-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan docs for hardcoded addresses
+        run: |
+          set -e
+          # Allowlist of expected files containing addresses
+          ALLOWLIST="docs/_data/sonic.addresses.json docs/reference/addresses.mdx docs/integrations/sonic-frontend-integration.md docs/deployments/overview.md docs/contracts/overview.md docs/omnidragon-project-status.md"
+          # Find any 0x addresses outside allowlist
+          VIOLATIONS=$(git ls-files | grep -E '\\.(md|mdx|ts|tsx|js)$' | grep -v -E "$(echo $ALLOWLIST | sed 's/ /|/g')" | xargs -r grep -nE '0x[0-9a-fA-F]{6,}' || true)
+          if [ -n "$VIOLATIONS" ]; then
+            echo "Found hardcoded addresses outside allowlist:"
+            echo "$VIOLATIONS"
+            exit 1
+          fi
+          echo "No disallowed hardcoded addresses found."
+
