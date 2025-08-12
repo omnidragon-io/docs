@@ -59,6 +59,12 @@ Notes:
 - If slippage reverts, set `minAmountLD` slightly lower than `amountLD`.
 
 ## Quick Reference
+### Contracts Reference
+
+- LayerZero EIDs and networking, wrapped native token setup, and verification status are covered in this section for convenience.
+- For full API patterns (frontend examples, VRF usage), see Integrations → Frontend.
+- For canonical addresses, see Reference → Addresses (Sonic).
+
 
 ### VRF Contract Addresses
 
