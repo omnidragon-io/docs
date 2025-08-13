@@ -1,15 +1,12 @@
 ---
-title: Current Status
-description: Current status and accomplishments of the cross-chain DRAGON token deployment
+title: Current Status (Archived)
+description: Archived status; see Architecture & Deployments for the latest.
 sidebar_position: 2
 ---
 
 # Current Status
 
-**Project**: Cross-chain DRAGON token deployment across all supported chains  
-**Token**: Dragon (DRAGON)  
-**Technology**: LayerZero V2 OFT (Omnichain Fungible Token)  
-**Last Updated**: December 2024  
+This page is archived. See Deployments → Overview for the current system.
 
 ---
 

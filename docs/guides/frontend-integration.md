@@ -1,9 +1,9 @@
 ---
-title: Frontend Integration Guide (TL;DR)
+title: Frontend Integration (Deprecated)
 sidebar_position: 20
 ---
 
-This is the minimal glue code your frontend needs. Constants are in Quick Start.
+Use Integrations → Frontend for the current guide. This page is deprecated.
 
 ## TL;DR
 1) Define constants (see Quick Start)
@@ -25,7 +25,7 @@ Links: see Quick Start
 ```ts
 import { ethers } from 'ethers'
 
-const TOKEN = '0x69dc1c36f8b26db3471acf0a6469d815e9a27777'
+const TOKEN = process.env.NEXT_PUBLIC_DRAGON_ADDRESS
 const user = '0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F'
 const dstEid = 30110 // Arbitrum
 const amount = ethers.parseUnits('69420', 18)
