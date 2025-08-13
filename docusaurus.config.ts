@@ -72,7 +72,7 @@ const config: Config = {
     announcementBar: {
       id: 'relaunch',
       content:
-        'Red Dragon will relaunch soon! Join our <a target="_blank" rel="noopener noreferrer" href="https://t.me/RedDragon">Telegram</a> for updates.',
+        'Red Dragon will relaunch soon! Join our <a target="_blank" rel="noopener noreferrer" href="https://t.me/SonicRedDragon">Telegram</a> for updates.',
       backgroundColor: '#ff4757',
       textColor: '#fff',
       isCloseable: true,
@@ -101,7 +101,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://t.me/RedDragon',
+          href: 'https://t.me/SonicRedDragon',
           label: 'Telegram',
           position: 'right',
         },
@@ -123,7 +123,7 @@ const config: Config = {
             },
             {
               label: 'Telegram',
-              href: 'https://t.me/RedDragon',
+              href: 'https://t.me/SonicRedDragon',
             },
           ],
         },

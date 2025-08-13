@@ -145,4 +145,4 @@ Handle errors per your app’s conventions. Common cases: user rejection (4001),
 
 - **Block Explorers**: Check transactions on [Sonic Scan](https://sonicscan.org) or [Arbiscan](https://arbiscan.io)
 - **Addresses**: See [Addresses (Sonic)](/docs/reference/addresses)
-- **Support**: Join our [Telegram](https://t.me/RedDragon) for developer support
+- **Support**: Join our [Telegram](https://t.me/SonicRedDragon) for developer support
