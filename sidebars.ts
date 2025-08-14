@@ -21,7 +21,6 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         { type: 'doc', id: 'concepts/overview', label: 'Overview' },
-        { type: 'doc', id: 'omnidragon-project-status', label: 'System Status' },
       ],
     },
     {
