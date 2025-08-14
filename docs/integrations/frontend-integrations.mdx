@@ -1,0 +1,99 @@
+---
+title: Frontend Integrations
+sidebar_position: 1
+---
+
+import sonic from '../_data/sonic.addresses.json';
+
+## Setup
+
+Network: Sonic (Chain ID 146) • RPC: `RPC_URL_SONIC` • Units: Prices 18d, USD 6d, Probabilities PPM (1e6=100%)
+
+## Canonical Addresses (Sonic)
+
+All frontends should read from this JSON, not hardcode.
+
+```json
+{ "omniDRAGON": sonic.Tokens.omniDRAGON, "redDRAGON": sonic.Tokens.redDRAGON, "veDRAGON": sonic.Tokens.veDRAGON }
+```
+
+```json
+{
+  "OmniDragonPrimaryOracle": sonic.Lottery.OmniDragonPrimaryOracle,
+  "OmniDragonLotteryManager": sonic.Lottery.OmniDragonLotteryManager,
+  "OmniDragonJackpotVault": sonic.Lottery.OmniDragonJackpotVault,
+  "DragonFeeMHelper": sonic.Lottery.DragonFeeMHelper
+}
+```
+
+```json
+{
+  "ChainlinkVRFIntegratorV2_5_Sonic": sonic.VRF.ChainlinkVRFIntegratorV2_5_Sonic,
+  "OmniDragonVRFConsumerV2_5_Arbitrum": sonic.VRF.OmniDragonVRFConsumerV2_5_Arbitrum
+}
+```
+
+```json
+{
+  "GaugeController": sonic.Gauge.GaugeController,
+  "DragonGaugeRegistry": sonic.Gauge.DragonGaugeRegistry,
+  "veDRAGONBoostManager": sonic.Voting.veDRAGONBoostManager,
+  "VotingPowerCalculator": sonic.Voting.VotingPowerCalculator
+}
+```
+
+```json
+{
+  "CREATE2FactoryWithOwnership": sonic.CREATE2FactoryWithOwnership,
+  "Registry": sonic.Registry,
+  "veDRAGONMath": sonic.Libraries.veDRAGONMath,
+  "UniswapV2LP": sonic.Pool.UniswapV2LP
+}
+```
+
+### Usage
+
+```ts
+// Build-time
+import sonic from '../_data/sonic.addresses.json';
+export const ADDRESSES = sonic;
+export const DRAGON = sonic.Tokens.omniDRAGON as `0x${string}`;
+
+// Runtime fetch (optional)
+const res = await fetch('/docs/_data/sonic.addresses.json');
+const sonicAddrs = await res.json();
+```
+
+## Code Example (Viem)
+
+```ts
+import { createPublicClient, http, getContract, parseAbi } from 'viem';
+import { sonic as sonicChain } from 'viem/chains';
+
+const client = createPublicClient({ chain: sonicChain, transport: http(process.env.RPC_URL_SONIC!) });
+const LM_ADDR = sonic.Lottery.OmniDragonLotteryManager as `0x${string}`;
+
+const lm = getContract({
+  address: LM_ADDR,
+  abi: parseAbi([
+    'function getDragonPriceUSD() view returns (int256,bool,uint256)',
+    'function calculateWinProbability(address,uint256) view returns (uint256,uint256)',
+    'function getCurrentJackpot() view returns (uint256)',
+    'function getUserStats(address) view returns (uint256,uint256,uint256,uint256,uint256)'
+  ]),
+  client
+});
+
+// Reads
+const [price18, isValid, timestamp] = await lm.read.getDragonPriceUSD();
+const [basePPM, boostedPPM] = await lm.read.calculateWinProbability([user, usdAmount6]);
+const jackpot = await lm.read.getCurrentJackpot();
+```
+
+## Notes
+
+- Convert price: `price = Number(price18) / 1e18`
+- Convert PPM to percent: `percent = ppm / 10_000`
+- Always import addresses from JSON above
+
+

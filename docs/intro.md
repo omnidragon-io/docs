@@ -26,7 +26,7 @@ Red Dragon is a revolutionary ERC-20 compatible token protocol built on LayerZer
 </div>
 
 <div className="hero-actions">
-  <a href="/docs/guides/quickstart" className="primary-action">Explore Documentation</a>
+  <a href="/docs/integrations/frontend-integrations" className="primary-action">Explore Documentation</a>
   <a href="https://github.com/wenakita/reddragon" className="secondary-action">View Source Code</a>
 </div>
 
@@ -99,7 +99,7 @@ Enterprise-grade security architecture with emergency controls, role-based acces
 **For Developers**  
 Get started building on Red Dragon with our comprehensive guides and API references.
 
-[View Developer Docs →](/docs/guides/quickstart)
+[View Developer Docs →](/docs/integrations/frontend-integrations)
 </div>
 
 <div className="quickstart-card">
@@ -129,7 +129,7 @@ Deep dive into the technical specifications and architecture.
 Build the future of cross-chain protocols with our growing community of developers and innovators.
 
 <div className="footer-links">
-  <a href="/docs/guides/quickstart" className="footer-button">Start Building</a>
+  <a href="/docs/integrations/frontend-integrations" className="footer-button">Start Building</a>
   <a href="https://t.me/RedDragon" className="footer-link">Join Community</a>
 </div>
 

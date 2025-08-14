@@ -29,8 +29,7 @@ const sidebars: SidebarsConfig = {
       label: 'Integrations',
       collapsed: false,
       items: [
-        { type: 'doc', id: 'guides/quickstart', label: 'Quick Start' },
-        { type: 'doc', id: 'integrations/sonic-frontend-integration', label: 'Frontend' },
+        { type: 'doc', id: 'integrations/frontend-integrations', label: 'Frontend' },
       ],
     },
     {
@@ -39,7 +38,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         { type: 'doc', id: 'deployments/overview', label: 'Architecture & Deployments' },
-        { type: 'doc', id: 'reference/addresses', label: 'Addresses (Sonic)' },
+        // Addresses merged into Frontend Integrations
       ],
     },
   ],

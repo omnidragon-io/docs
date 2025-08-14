@@ -91,7 +91,7 @@ const config: Config = {
           label: 'Concepts',
         },
         {
-          to: '/docs/integrations/sonic-frontend-integration',
+          to: '/docs/integrations/frontend-integrations',
           position: 'left',
           label: 'Frontend',
         },
@@ -115,7 +115,7 @@ const config: Config = {
           items: [
              {
               label: 'Documentation',
-              to: '/docs/guides/quickstart',
+              to: '/docs/integrations/frontend-integrations',
             },
             {
               label: 'GitHub',
