@@ -5,8 +5,8 @@ sidebar_position: 2
 
 # Privacy Policy
 
-**Effective Date:** December 2024  
-**Last Updated:** December 2024
+**Effective Date:** August 17, 2025  
+**Last Updated:** August 17, 2025
 
 ## 1. Introduction
 
