@@ -40,6 +40,15 @@ const sidebars: SidebarsConfig = {
         // Addresses merged into Frontend Integrations
       ],
     },
+    {
+      type: 'category',
+      label: 'Legal',
+      collapsed: false,
+      items: [
+        { type: 'doc', id: 'legal/terms-of-service', label: 'Terms of Service' },
+        { type: 'doc', id: 'legal/privacy-policy', label: 'Privacy Policy' },
+      ],
+    },
   ],
 };
 
