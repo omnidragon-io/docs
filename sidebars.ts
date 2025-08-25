@@ -37,7 +37,17 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         { type: 'doc', id: 'deployments/overview', label: 'Architecture & Deployments' },
-        // Addresses merged into Frontend Integrations
+        {
+          type: 'category',
+          label: 'Oracle',
+          collapsed: false,
+          items: [
+            { type: 'doc', id: 'oracle/overview', label: 'Overview' },
+            { type: 'doc', id: 'oracle/configuration', label: 'Configuration' },
+            { type: 'doc', id: 'oracle/technical-reference', label: 'Technical Reference' },
+            { type: 'doc', id: 'oracle/gpt-guide', label: 'Integration Guide' },
+          ],
+        },
       ],
     },
     {

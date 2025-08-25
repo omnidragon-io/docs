@@ -1,0 +1,105 @@
+[
+  {
+    "inputs": [],
+    "name": "getLatestPrice",
+    "outputs": [
+      {"internalType": "int256", "name": "price", "type": "int256"},
+      {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getNativeTokenPrice", 
+    "outputs": [
+      {"internalType": "int256", "name": "price", "type": "int256"},
+      {"internalType": "bool", "name": "isValid", "type": "bool"},
+      {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {"internalType": "uint32", "name": "_eid", "type": "uint32"}
+    ],
+    "name": "getPrice",
+    "outputs": [
+      {"internalType": "int256", "name": "dragonPrice", "type": "int256"},
+      {"internalType": "int256", "name": "nativePrice", "type": "int256"},
+      {"internalType": "uint256", "name": "timestamp", "type": "uint256"},
+      {"internalType": "bool", "name": "isValid", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "updatePrice",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "validatePrice",
+    "outputs": [
+      {"internalType": "bool", "name": "localValid", "type": "bool"},
+      {"internalType": "bool", "name": "crossChainValid", "type": "bool"},
+      {"internalType": "int256", "name": "averagePeerPrice", "type": "int256"},
+      {"internalType": "int256", "name": "priceDifference", "type": "int256"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "mode",
+    "outputs": [
+      {"internalType": "uint8", "name": "", "type": "uint8"}
+    ],
+    "stateMutability": "view", 
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "priceInitialized",
+    "outputs": [
+      {"internalType": "bool", "name": "", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastUpdateTime", 
+    "outputs": [
+      {"internalType": "uint256", "name": "", "type": "uint256"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": false, "internalType": "int256", "name": "dragonPrice", "type": "int256"},
+      {"indexed": false, "internalType": "int256", "name": "nativePrice", "type": "int256"}, 
+      {"indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "name": "PriceUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": true, "internalType": "uint32", "name": "sourceEid", "type": "uint32"},
+      {"indexed": false, "internalType": "int256", "name": "dragonPrice", "type": "int256"},
+      {"indexed": false, "internalType": "int256", "name": "nativePrice", "type": "int256"},
+      {"indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "name": "CrossChainPriceReceived", 
+    "type": "event"
+  }
+]
+
