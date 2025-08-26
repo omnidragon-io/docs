@@ -23,6 +23,6 @@ cast call $DRAGON_TOKEN "quoteSend((uint32,bytes32,uint256,uint256,bytes,bytes,b
 cast send $DRAGON_TOKEN "send(...)" --value $NATIVE_FEE --rpc-url $RPC_URL_SONIC
 ```
 
-See [Frontend Integrations](/docs/integrations/frontend-integrations) for complete examples and addresses.
+See [Frontend Integrations](/integrations/frontend-integrations) for complete examples and addresses.
 
 
