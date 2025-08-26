@@ -15,14 +15,14 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://docs.omnidragon.io',
+  url: 'https://omnidragon-io.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'lzreddragon', // GitHub org/user
+  organizationName: 'omnidragon-io', // GitHub org/user
   projectName: 'docs', // Repo name
   deploymentBranch: 'gh-pages',
 
@@ -43,10 +43,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: '/',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/lzreddragon/docs/edit/main/',
+            'https://github.com/omnidragon-io/docs/edit/main/',
         },
         blog: false,
         theme: {
@@ -91,12 +92,12 @@ const config: Config = {
           label: 'Concepts',
         },
         {
-          to: '/docs/integrations/frontend-integrations',
+          to: '/integrations/frontend-integrations',
           position: 'left',
           label: 'Frontend',
         },
         {
-          href: 'https://github.com/lzreddragon/docs',
+          href: 'https://github.com/omnidragon-io/docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -115,11 +116,11 @@ const config: Config = {
           items: [
              {
               label: 'Documentation',
-              to: '/docs/integrations/frontend-integrations',
+              to: '/integrations/frontend-integrations',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/lzreddragon/docs',
+              href: 'https://github.com/omnidragon-io/docs',
             },
             {
               label: 'Telegram',
