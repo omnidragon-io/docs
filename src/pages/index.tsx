@@ -41,7 +41,7 @@ function HomepageHero() {
           <div className={styles.heroActions}>
             <Link
               className={styles.primaryButton}
-              to="/docs/intro">
+              to="/intro">
               Explore Documentation
             </Link>
             <Link
@@ -106,7 +106,7 @@ function HomepageCallToAction() {
           <div className={styles.ctaActions}>
             <Link
               className={styles.primaryButton}
-              to="/docs/concepts/overview">
+              to="/concepts/overview">
               Start Building
             </Link>
             <Link
