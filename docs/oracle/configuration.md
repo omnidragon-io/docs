@@ -6,7 +6,7 @@ sidebar_position: 20
 ## Successfully Configured Components
 
 ### 1. Oracle Deployment
-- Contract Address: `0x693356a60f7d6f66c0e44f37c8165120b3fb1777`
+- Contract Address: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
 - Network: Sonic Mainnet (Chain ID: 146)
 - Contract Type: OmniDragonOracle
 - Status: Deployed and Verified
@@ -50,8 +50,8 @@ sidebar_position: 20
 ## LayerZero Configuration
 
 ### Network Configuration
-- Sonic (Primary): `0x695a3e172789a270EF06553CBf038bE678841777`
-- Arbitrum (Secondary): `0x695a3e172789a270EF06553CBf038bE678841777`
+- Sonic (Primary): `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- Arbitrum (Secondary): `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
 - Read Channel ID: 4294967295
 - Gas Limit: 2,000,000 (configured for oracle operations)
 

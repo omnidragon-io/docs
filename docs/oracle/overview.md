@@ -9,7 +9,7 @@ sidebar_position: 10
 
 The OmniDragon Oracle is a multi-chain price aggregation system that provides real-time DRAGON/USD and native token pricing data across Sonic and Arbitrum networks. The system uses LayerZero for cross-chain communication and aggregates data from multiple oracle sources for maximum reliability and accuracy.
 
-**Primary Oracle Address**: `0x69B96004C850722B98bF307a1e8dd259713A5777` (Same on both Sonic and Arbitrum)
+**Primary Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777` (Same on both Sonic and Arbitrum)
 
 ## System Architecture
 
@@ -131,7 +131,7 @@ The Oracle contracts are deployed to a vanity address starting with `0x69` and e
 
 **Salt Used**: `0x50ad0b6ce868db473641530bb0b17dc8e206718ec1eecb863a525053be5de3c5`
 **Factory**: `0xAA28020DDA6b954D16208eccF873D79AC6533833`
-**Result**: `0x69B96004C850722B98bF307a1e8dd259713A5777`
+**Result**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
 
 ### 2. Contract Size Optimization
 
@@ -187,13 +187,13 @@ The system uses LayerZero's OApp Read functionality for cross-chain price reques
 const primary: OmniPointHardhat = {
   eid: EndpointId.SONIC_V2_MAINNET,
   contractName: 'OmniDragonOracle',
-  address: '0x69B96004C850722B98bF307a1e8dd259713A5777',
+  address: '0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777',
 }
 
 const secondaryArb: OmniPointHardhat = {
   eid: EndpointId.ARBITRUM_V2_MAINNET,
   contractName: 'OmniDragonOracle', 
-  address: '0x69B96004C850722B98bF307a1e8dd259713A5777',
+  address: '0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777',
 }
 ```
 
@@ -262,7 +262,7 @@ Each oracle source has configurable weights for price aggregation:
 const Web3 = require('web3');
 const web3 = new Web3('https://rpc.soniclabs.com/');
 
-const ORACLE_ADDRESS = '0x69B96004C850722B98bF307a1e8dd259713A5777';
+const ORACLE_ADDRESS = '0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777';
 const ORACLE_ABI = [
   {
     "inputs": [],
@@ -302,7 +302,7 @@ const { ethers } = require('ethers');
 
 const provider = new ethers.JsonRpcProvider('https://rpc.soniclabs.com/');
 const oracleContract = new ethers.Contract(
-  '0x69B96004C850722B98bF307a1e8dd259713A5777',
+  '0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777',
   ORACLE_ABI,
   provider
 );
@@ -386,7 +386,7 @@ Ensure correct DVN addresses for LZ Read operations:
 forge verify-contract \
   --chain sonic \
   --etherscan-api-key $SONIC_API_KEY \
-  0x69B96004C850722B98bF307a1e8dd259713A5777 \
+  0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777 \
   contracts/core/oracles/OmniDragonOracle.sol:OmniDragonOracle
 ```
 
@@ -395,7 +395,7 @@ forge verify-contract \
 forge verify-contract \
   --chain arbitrum \
   --etherscan-api-key $ARBITRUM_API_KEY \
-  0x69B96004C850722B98bF307a1e8dd259713A5777 \
+  0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777 \
   contracts/core/oracles/OmniDragonOracle.sol:OmniDragonOracle
 ```
 

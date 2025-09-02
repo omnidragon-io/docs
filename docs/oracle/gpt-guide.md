@@ -8,7 +8,7 @@ The OmniDragonOracle is a multi-source price aggregation system on Sonic providi
 
 ## Contract Details
 
-- Deployed Address: `0x69B96004C850722B98bF307a1e8dd259713A5777`
+- Deployed Address: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
 - Network: Sonic (Chain ID: 146)
 - RPC URL: `https://rpc.sonic.mainnet.soniclabs.com/`
 
@@ -66,7 +66,7 @@ DRAGON Price = (Native Price × 1e8) / DEX_Ratio
 import { ethers } from 'ethers'
 
 const provider = new ethers.JsonRpcProvider(process.env.RPC_URL_SONIC!)
-const ORACLE_ADDRESS = '0x69B96004C850722B98bF307a1e8dd259713A5777'
+const ORACLE_ADDRESS = '0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777'
 const ABI = [
   'function getLatestPrice() view returns (int256,uint256)',
 ]

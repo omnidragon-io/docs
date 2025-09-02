@@ -8,7 +8,7 @@ sidebar_position: 50
 ### Core Contract Addresses
 ```bash
 # Main Oracle (Same address on both chains)
-ORACLE_ADDRESS=0x69B96004C850722B98bF307a1e8dd259713A5777
+ORACLE_ADDRESS=0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777
 
 # Supporting Infrastructure
 REGISTRY_ADDRESS=0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777
