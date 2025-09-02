@@ -22,7 +22,7 @@ ORACLE_SALT=0x50ad0b6ce868db473641530bb0b17dc8e206718ec1eecb863a525053be5de3c5
 ### Network RPC URLs
 ```bash
 # Sonic Network
-RPC_URL_SONIC=https://rpc.sonic.fantom.network/
+RPC_URL_SONIC=https://rpc.soniclabs.com/
 SONIC_CHAIN_ID=146
 
 # Arbitrum Network  
