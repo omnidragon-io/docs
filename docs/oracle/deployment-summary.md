@@ -15,32 +15,46 @@ The OmniDragonOracle is a cross-chain price oracle system built on LayerZero's o
 - **Network**: Sonic Mainnet
 - **Chain ID**: 146
 - **LayerZero EID**: 30332
-- **Contract Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Registry Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 - **Status**: ✅ **PRIMARY** - Provides price data to secondary chains
 
 ### Secondary Oracles
-All secondary oracles deployed at the same vanity address: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+All secondary oracles deployed with consistent vanity addresses:
 
 #### 1. Arbitrum One
 - **Chain ID**: 42161
 - **LayerZero EID**: 30110
+- **Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Registry Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 - **Status**: ✅ **FULLY CONFIGURED** - Cross-chain requests to Sonic working
 
-#### 2. Base
+#### 2. Base  
 - **Chain ID**: 8453
 - **LayerZero EID**: 30184
+- **Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Registry Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 - **Status**: ✅ **FULLY CONFIGURED** - Cross-chain requests to Sonic working
 
 #### 3. Ethereum Mainnet
 - **Chain ID**: 1
 - **LayerZero EID**: 30101
+- **Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Registry Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 - **Status**: ✅ **FULLY CONFIGURED** - Cross-chain requests to Sonic working
 
 #### 4. Hyperliquid
 - **Chain ID**: 999
 - **LayerZero EID**: 30377
+- **Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Registry Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 - **Status**: ✅ **NEWLY INTEGRATED** - Cross-chain requests to Sonic working
 - **Quote Fee**: ~0.002 ETH for cross-chain requests
+
+#### 5. Additional Networks
+- **Unichain**: Registry deployed at `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
+- **Avalanche**: Registry deployed at `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
+- **TAC**: Registry deployed at `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 
 ## 🔧 Technical Architecture
 
@@ -50,7 +64,8 @@ All secondary oracles deployed at the same vanity address: `0x69c1E310B9AD8BeA13
 - **Cross-chain Pattern**: Secondary chains → Primary chain (Sonic)
 
 ### Smart Contract Features
-- **Vanity Address**: All contracts deployed to `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Oracle Address**: All oracles deployed to `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777`
+- **Registry Address**: All registries deployed to `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`  
 - **CREATE2 Deployment**: Ensures consistent addresses across all chains
 - **Peer-to-Peer**: Bidirectional peer connections between all chains
 - **Gas Optimization**: Enforced options set for optimal cross-chain execution
@@ -178,18 +193,36 @@ All secondary oracles deployed at the same vanity address: `0x69c1E310B9AD8BeA13
 - ✅ Gas-optimized execution across all networks
 - ✅ Consistent contract addresses via CREATE2 deployment
 
+## 🔗 Related Infrastructure
+
+### OmniDragon VRF System
+- **Status**: ✅ **FULLY OPERATIONAL** 
+- **Cross-Chain VRF**: Sonic → Arbitrum → Chainlink VRF v2.5
+- **VRF Integrator**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
+- **Documentation**: See [VRF System Documentation](./vrf-system.md)
+- **Capabilities**: Secure cross-chain verifiable randomness
+
+### Registry System  
+- **Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777` (All chains)
+- **Owner**: `0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F`
+- **Factory**: `0xAA28020DDA6b954D16208eccF873D79AC6533833`
+- **Networks**: 8 chains (Sonic, Arbitrum, Ethereum, Base, Hyperliquid, Unichain, Avalanche, TAC)
+
 ## 🚀 Next Steps
 
 ### Potential Enhancements
 1. **Bidirectional Configuration**: Configure Sonic → Secondary chain requests
 2. **Additional Networks**: Expand to more LayerZero-supported chains
 3. **Price Feed Optimization**: Implement more sophisticated price aggregation
-4. **Monitoring**: Set up cross-chain transaction monitoring
+4. **VRF Integration**: Connect oracle data with VRF for enhanced randomness
+5. **Monitoring**: Set up cross-chain transaction monitoring
 
 ### Maintenance
 - Regular DVN address updates as LayerZero infrastructure evolves
-- RPC endpoint monitoring and failover configuration
+- RPC endpoint monitoring and failover configuration  
 - Gas price optimization based on network conditions
+- VRF subscription balance monitoring
+- Cross-system integration testing
 
 ## 📈 Success Metrics
 
