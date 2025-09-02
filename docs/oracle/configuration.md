@@ -39,7 +39,7 @@ sidebar_position: 20
 ### Price Functions
 - `getLatestPrice()`: Returns $0.002136 USD
 - `getAggregatedPrice()`: Returns $0.002136 USD (Success: true)
-- `getNativeTokenPrice()`: Returns $0.002136 USD (Valid: true)
+- Individual oracle prices available via `getChainlinkPrice()`, `getPythPrice()`, etc.
 - `isFresh()`: Returns false (expected in emergency mode)
 
 ### Oracle Status

@@ -18,11 +18,14 @@ The OmniDragonOracle is a multi-source price aggregation system on Sonic providi
 ```solidity
 function getLatestPrice() external view returns (int256 price, uint256 timestamp)
 ```
-- Price uses 8 decimals (e.g., `131496` = $0.00131496)
+- Price uses 18 decimals (e.g., `1314960000000000` = $0.00131496)
 
-### 2. Get Current Native (S) Price  
+### 2. Get Individual Oracle Prices
 ```solidity
-function getNativeTokenPrice() external view returns (int256 price, bool isValid, uint256 timestamp)
+function getChainlinkPrice() external view returns (int256 price, bool isValid)
+function getPythPrice() external view returns (int256 price, bool isValid)
+function getBandPrice() external view returns (int256 price, bool isValid)
+function getAPI3Price() external view returns (int256 price, bool isValid)
 ```
 
 ### 3. Get Combined Price Data
@@ -42,11 +45,9 @@ function updatePrice() external payable
 
 ### 5. Check Oracle Health
 ```solidity
-function validatePrice() external view returns (
+function validate() external view returns (
     bool localValid,
-    bool crossChainValid,
-    int256 averagePeerPrice,
-    int256 priceDifference
+    bool crossChainValid
 )
 ```
 
@@ -57,7 +58,7 @@ Sources (equal weights by default): Chainlink S/USD, Pyth S/USD, Band S/USD, API
 Price calculation:
 ```
 Native Price = WeightedAverage(Chainlink + Pyth + Band + API3)
-DRAGON Price = (Native Price × 1e8) / DEX_Ratio
+DRAGON Price = (Native Price × 1e18) / DEX_Ratio
 ```
 
 ## Web3 Example
@@ -72,12 +73,12 @@ const ABI = [
 ]
 
 const oracle = new ethers.Contract(ORACLE_ADDRESS, ABI, provider)
-const [price8] = await oracle.getLatestPrice()
-const priceUsd = Number(price8) / 1e8
+const [price18] = await oracle.getLatestPrice()
+const priceUsd = Number(price18) / 1e18
 ```
 
 ## Notes
 
 - Use Reference → Addresses (Sonic) for canonical addresses
-- Prices use 8 decimals; convert by dividing by 1e8
+- Prices use 18 decimals; convert by dividing by 1e18
 

@@ -11,11 +11,40 @@
   },
   {
     "inputs": [],
-    "name": "getNativeTokenPrice", 
+    "name": "getChainlinkPrice", 
     "outputs": [
       {"internalType": "int256", "name": "price", "type": "int256"},
-      {"internalType": "bool", "name": "isValid", "type": "bool"},
-      {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+      {"internalType": "bool", "name": "isValid", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPythPrice", 
+    "outputs": [
+      {"internalType": "int256", "name": "price", "type": "int256"},
+      {"internalType": "bool", "name": "isValid", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getBandPrice", 
+    "outputs": [
+      {"internalType": "int256", "name": "price", "type": "int256"},
+      {"internalType": "bool", "name": "isValid", "type": "bool"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAPI3Price", 
+    "outputs": [
+      {"internalType": "int256", "name": "price", "type": "int256"},
+      {"internalType": "bool", "name": "isValid", "type": "bool"}
     ],
     "stateMutability": "view",
     "type": "function"
@@ -38,17 +67,15 @@
     "inputs": [],
     "name": "updatePrice",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "validatePrice",
+    "name": "validate",
     "outputs": [
       {"internalType": "bool", "name": "localValid", "type": "bool"},
-      {"internalType": "bool", "name": "crossChainValid", "type": "bool"},
-      {"internalType": "int256", "name": "averagePeerPrice", "type": "int256"},
-      {"internalType": "int256", "name": "priceDifference", "type": "int256"}
+      {"internalType": "bool", "name": "crossChainValid", "type": "bool"}
     ],
     "stateMutability": "view",
     "type": "function"

@@ -242,9 +242,9 @@ oracle.setEnforcedOptions([
 
 ### Price Format
 
-All prices are returned in **8-decimal format**:
-- DRAGON/USD: `131496` = $0.00131496
-- Native/USD: `30265489` = $0.30265489
+All prices are returned in **18-decimal format**:
+- DRAGON/USD: `1314960000000000` = $0.00131496
+- Native/USD: `302654890000000000` = $0.30265489
 
 ### Aggregation Weights
 
@@ -268,9 +268,9 @@ const ORACLE_ABI = [
     "inputs": [],
     "name": "getLatestPrice", 
     "outputs": [
-      {"type": "int256", "name": "dragonUsd8"},
+      {"type": "int256", "name": "dragonUsd18"},
       {"type": "uint256", "name": "timestamp"},
-      {"type": "int256", "name": "nativeUsd8"}, 
+      {"type": "int256", "name": "nativeUsd18"}, 
       {"type": "bool", "name": "isValid"},
       {"type": "uint256", "name": "nativeTimestamp"}
     ],
@@ -283,8 +283,8 @@ const oracleContract = new web3.eth.Contract(ORACLE_ABI, ORACLE_ADDRESS);
 
 async function getDragonPrice() {
   const result = await oracleContract.methods.getLatestPrice().call();
-  const dragonPriceUSD = parseInt(result.dragonUsd8) / 1e8;
-  const nativePriceUSD = parseInt(result.nativeUsd8) / 1e8; 
+  const dragonPriceUSD = parseInt(result.dragonUsd18) / 1e18;
+  const nativePriceUSD = parseInt(result.nativeUsd18) / 1e18; 
   
   return {
     dragonPrice: dragonPriceUSD,
@@ -308,12 +308,12 @@ const oracleContract = new ethers.Contract(
 );
 
 async function getPriceData() {
-  const [dragonUsd8, timestamp, nativeUsd8, isValid, nativeTimestamp] = 
+    const [dragonUsd18, timestamp, nativeUsd18, isValid, nativeTimestamp] = 
     await oracleContract.getLatestPrice();
-    
+
   return {
-    dragonPrice: Number(dragonUsd8) / 1e8,
-    nativePrice: Number(nativeUsd8) / 1e8,
+    dragonPrice: Number(dragonUsd18) / 1e18,
+    nativePrice: Number(nativeUsd18) / 1e18,
     timestamp: Number(timestamp),
     isValid,
     nativeTimestamp: Number(nativeTimestamp)
