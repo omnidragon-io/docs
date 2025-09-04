@@ -48,6 +48,16 @@ const sidebars: SidebarsConfig = {
             { type: 'doc', id: 'oracle/gpt-guide', label: 'Integration Guide' },
           ],
         },
+        {
+          type: 'category',
+          label: 'Registry',
+          collapsed: false,
+          items: [
+            { type: 'doc', id: 'registry/overview', label: 'Overview' },
+            { type: 'doc', id: 'registry/configuration', label: 'Configuration' },
+            { type: 'doc', id: 'registry/technical-reference', label: 'Technical Reference' },
+          ],
+        },
       ],
     },
     {
