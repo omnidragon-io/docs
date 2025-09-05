@@ -68,6 +68,16 @@ const sidebars: SidebarsConfig = {
             { type: 'doc', id: 'vrf/technical-reference', label: 'Technical Reference' },
           ],
         },
+        {
+          type: 'category',
+          label: 'Token',
+          collapsed: false,
+          items: [
+            { type: 'doc', id: 'token/overview', label: 'Overview' },
+            { type: 'doc', id: 'token/configuration', label: 'Configuration' },
+            { type: 'doc', id: 'token/technical-reference', label: 'Technical Reference' },
+          ],
+        },
       ],
     },
     {
