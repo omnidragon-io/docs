@@ -7,10 +7,6 @@ sidebar_position: 10
 
 > **Intelligent cross-chain token with LayerZero V2 OFT, smart fee detection, and lottery integration**
 
-[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-363636?style=flat-square&logo=solidity)](https://soliditylang.org/)
-[![LayerZero](https://img.shields.io/badge/LayerZero%20V2-OFT-6366f1?style=flat-square)](https://layerzero.network/)
-[![Cross-Chain](https://img.shields.io/badge/Cross--Chain-Token-22c55e?style=flat-square)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
@@ -27,7 +23,8 @@ omniDRAGON is a sophisticated cross-chain token built on LayerZero V2 OFT (Omni-
 
 **Token Address**: `0x69dc1c36f8b26db3471acf0a6469d815e9a27777` (Vanity pattern across all chains)
 
-## Token Specifications
+<details>
+<summary><h2>Token Specifications</h2></summary>
 
 ### Basic Information
 - **Name**: omniDRAGON
@@ -46,7 +43,10 @@ Total Supply: 69,420,000 DRAGON
 └── Maximum Supply: Fixed at 69,420,000 DRAGON
 ```
 
-## Smart Fee Detection System
+</details>
+
+<details>
+<summary><h2>Smart Fee Detection System</h2></summary>
 
 ### Operation Type Classifications
 The token uses sophisticated logic to classify different types of operations:
@@ -77,7 +77,10 @@ enum OperationType {
 - ✅ Direct wallet transfers
 - ✅ Contract interactions (non-trading)
 
-## Multi-DEX Integration
+</details>
+
+<details>
+<summary><h2>Multi-DEX Integration</h2></summary>
 
 ### Supported DEX Protocols
 
@@ -99,7 +102,10 @@ Trading Operation Detection:
 4. Apply fees only to confirmed trading
 ```
 
-## Cross-Chain Architecture
+</details>
+
+<details>
+<summary><h2>Cross-Chain Architecture</h2></summary>
 
 ```
 ┌─────────────────┐    LayerZero V2 OFT    ┌─────────────────┐
@@ -125,7 +131,10 @@ Trading Operation Detection:
 └─────────────────┘                        └─────────────────┘
 ```
 
-## Lottery Integration
+</details>
+
+<details>
+<summary><h2>Lottery Integration</h2></summary>
 
 ### Automatic Lottery Entries
 - **Trigger**: Buy transactions only (not sells)
@@ -142,7 +151,10 @@ Buy Transaction → Fee Calculation → Fee Distribution → Lottery Trigger
                                   Lottery Entry Created
 ```
 
-## Revenue Distribution System
+</details>
+
+<details>
+<summary><h2>Revenue Distribution System</h2></summary>
 
 ### Immediate Distribution
 All fees are distributed immediately without accumulation:
@@ -162,7 +174,10 @@ Fee Collection → Contract Balance → Immediate Distribution
 - **Revenue Distributor**: Rewards for veDRAGON stakers
 - **Burn Address**: Permanent token removal (deflationary)
 
-## Supported Networks
+</details>
+
+<details>
+<summary><h2>Supported Networks</h2></summary>
 
 ### Primary Network
 | Network | Chain ID | LayerZero EID | Token Address | Status |
@@ -177,7 +192,10 @@ Fee Collection → Contract Balance → Immediate Distribution
 | **Base** | 8453 | 30184 | `0x69dc1c36...27777` | 🔄 Planned |
 | **Avalanche** | 43114 | 30106 | `0x69dc1c36...27777` | 🔄 Planned |
 
-## Core Functions
+</details>
+
+<details>
+<summary><h2>Core Functions</h2></summary>
 
 ### Token Operations
 ```solidity
@@ -216,7 +234,10 @@ function getOperationType(address addr) external view returns (OperationType)
 function isTradingVenue(address addr) external view returns (bool)
 ```
 
-## Integration Examples
+</details>
+
+<details>
+<summary><h2>Integration Examples</h2></summary>
 
 ### Basic Token Operations
 ```javascript
@@ -384,7 +405,10 @@ contract GameContract {
 }
 ```
 
-## Security Features
+</details>
+
+<details>
+<summary><h2>Security Features</h2></summary>
 
 - **Smart Fee Detection**: Prevents fee avoidance while allowing legitimate operations
 - **Reentrancy Protection**: ReentrancyGuard on critical functions
@@ -393,7 +417,10 @@ contract GameContract {
 - **Vanity Addresses**: Consistent deployment pattern across chains
 - **Registry Integration**: Centralized configuration management
 
-## Performance Metrics
+</details>
+
+<details>
+<summary><h2>Performance Metrics</h2></summary>
 
 ### Gas Costs
 | Operation | Gas Cost | Fee Applied |
@@ -415,7 +442,10 @@ contract GameContract {
 - **Fast Finality**: 2-5 minutes typical cross-chain time
 - **Low Fees**: Only LayerZero messaging costs
 
-## Sonic FeeM Integration
+</details>
+
+<details>
+<summary><h2>Sonic FeeM Integration</h2></summary>
 
 ### Network Benefits
 - **FeeM Registration**: Contract registered for Sonic network benefits
@@ -432,7 +462,10 @@ function registerMe() external onlyOwner {
 }
 ```
 
-## Tokenomics Summary
+</details>
+
+<details>
+<summary><h2>Tokenomics Summary</h2></summary>
 
 ### Deflationary Mechanics
 - **Burn on Trading**: 0.69% of each trade permanently burned
@@ -449,6 +482,8 @@ function registerMe() external onlyOwner {
 - **DeFi Integration**: Smart fee detection for optimal DeFi usage
 - **Lottery Participation**: Automatic lottery entries create engagement
 - **Governance Token**: Future governance integration via veDRAGON
+
+</details>
 
 ---
 
