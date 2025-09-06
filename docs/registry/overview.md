@@ -7,10 +7,6 @@ sidebar_position: 10
 
 > **Central configuration registry for cross-chain coordination in the OmniDragon ecosystem**
 
-[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-363636?style=flat-square&logo=solidity)](https://soliditylang.org/)
-[![LayerZero](https://img.shields.io/badge/LayerZero%20V2-Compatible-6366f1?style=flat-square)](https://layerzero.network/)
-[![Multi-Chain](https://img.shields.io/badge/Multi--Chain-Registry-22c55e?style=flat-square)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
@@ -26,7 +22,8 @@ The OmniDragonRegistry serves as the **central configuration hub** for the entir
 
 **Registry Address**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777` (Same on all networks)
 
-## Architecture
+<details>
+<summary><h2>Architecture</h2></summary>
 
 ```
 ┌─────────────────┐    Registry Query    ┌─────────────────┐
@@ -50,7 +47,10 @@ The OmniDragonRegistry serves as the **central configuration hub** for the entir
                                          └─────────────────┘
 ```
 
-## Supported Networks
+</details>
+
+<details>
+<summary><h2>Supported Networks</h2></summary>
 
 The OmniDragonRegistry is deployed on all networks supported by the OmniDragon ecosystem:
 
@@ -69,7 +69,10 @@ The OmniDragonRegistry is deployed on all networks supported by the OmniDragon e
 | **Unichain** | TBD | TBD | `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777` |
 | **Avalanche** | 43114 | 30106 | `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777` |
 
-## Core Functions
+</details>
+
+<details>
+<summary><h2>Core Functions</h2></summary>
 
 ### Contract Discovery
 ```solidity
@@ -119,7 +122,10 @@ function getOptimalRoute(uint256 fromChain, uint256 toChain)
 function getPeerAddress(uint32 eid) external view returns (bytes32 peer)
 ```
 
-## Integration Examples
+</details>
+
+<details>
+<summary><h2>Integration Examples</h2></summary>
 
 ### Frontend Integration
 
@@ -238,7 +244,10 @@ contract GameContract {
 }
 ```
 
-## Configuration Management
+</details>
+
+<details>
+<summary><h2>Configuration Management</h2></summary>
 
 ### Environment Setup
 ```bash
@@ -295,7 +304,10 @@ export const REGISTRY_CONFIG = {
 };
 ```
 
-## Security Features
+</details>
+
+<details>
+<summary><h2>Security Features</h2></summary>
 
 - **Immutable Addresses**: Registry addresses are consistent across all chains
 - **Access Control**: Only authorized addresses can update configurations
@@ -303,7 +315,10 @@ export const REGISTRY_CONFIG = {
 - **Vanity Pattern**: All addresses follow `0x69...0777` pattern for easy verification
 - **Cross-Chain Verification**: Network configurations verified across chains
 
-## Performance & Gas Costs
+</details>
+
+<details>
+<summary><h2>Performance & Gas Costs</h2></summary>
 
 ### Gas Costs
 - **Network discovery**: ~15,000 gas
@@ -317,7 +332,10 @@ export const REGISTRY_CONFIG = {
 3. Use view functions for read-only operations
 4. Pre-compute routes for known chain pairs
 
-## Troubleshooting
+</details>
+
+<details>
+<summary><h2>Troubleshooting</h2></summary>
 
 ### Common Issues
 
@@ -361,7 +379,10 @@ async function checkRegistryHealth(chainId) {
 }
 ```
 
-## API Reference
+</details>
+
+<details>
+<summary><h2>API Reference</h2></summary>
 
 ### Core Functions
 | Function | Description | Returns |
@@ -384,6 +405,8 @@ event ChainAdded(uint256 indexed chainId, uint32 indexed layerZeroEid);
 event AddressUpdated(bytes32 indexed key, address indexed newAddress);
 event ConfigurationUpdated(uint256 indexed chainId, bytes32 configHash);
 ```
+
+</details>
 
 ---
 

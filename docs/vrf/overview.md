@@ -7,10 +7,6 @@ sidebar_position: 10
 
 > **Multi-chain verifiable random function powered by Chainlink VRF v2.5 and LayerZero V2**
 
-[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-363636?style=flat-square&logo=solidity)](https://soliditylang.org/)
-[![LayerZero](https://img.shields.io/badge/LayerZero%20V2-Cross--Chain-6366f1?style=flat-square)](https://layerzero.network/)
-[![Chainlink](https://img.shields.io/badge/Chainlink%20VRF-v2.5-375bd2?style=flat-square)](https://chain.link/)
-[![Status](https://img.shields.io/badge/Status-FULLY%20OPERATIONAL-22c55e?style=flat-square)](#)
 
 ## Overview
 
@@ -26,7 +22,8 @@ The OmniDragon VRF System provides **verifiable random number generation** acros
 
 **Deployment Status**: ✅ **FULLY OPERATIONAL** (Deployed December 19, 2024)
 
-## System Architecture
+<details>
+<summary><h2>System Architecture</h2></summary>
 
 ```
 ┌─────────────────┐    LayerZero V2     ┌─────────────────┐
@@ -51,7 +48,10 @@ The OmniDragon VRF System provides **verifiable random number generation** acros
                                         └─────────────────┘
 ```
 
-## Deployment Details
+</details>
+
+<details>
+<summary><h2>Deployment Details</h2></summary>
 
 ### Sonic Network (Primary Integrator)
 - **ChainlinkVRFIntegratorV2_5**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
@@ -72,7 +72,10 @@ The OmniDragon VRF System provides **verifiable random number generation** acros
 - **OmniDragonRegistry**: `0x6949936442425f4137807Ac5d269e6Ef66d50777`
 - **Pattern**: Consistent vanity addresses following `0x69...` pattern
 
-## Chainlink VRF Configuration
+</details>
+
+<details>
+<summary><h2>Chainlink VRF Configuration</h2></summary>
 
 ### VRF v2.5 Settings
 ```typescript
@@ -94,7 +97,10 @@ The OmniDragon VRF System provides **verifiable random number generation** acros
 - **Number of Words**: 1 (configurable)
 - **Native Payment**: Supported
 
-## Supported Operations
+</details>
+
+<details>
+<summary><h2>Supported Operations</h2></summary>
 
 ### 1. Cross-Chain VRF Request Flow
 ```
@@ -106,7 +112,10 @@ Sonic dApp → VRFIntegrator → LayerZero V2 → Arbitrum VRFConsumer → Chain
 Arbitrum dApp → VRFConsumer → Chainlink VRF → Direct Callback
 ```
 
-## Core Functions
+</details>
+
+<details>
+<summary><h2>Core Functions</h2></summary>
 
 ### Cross-Chain VRF (Sonic → Arbitrum)
 ```solidity
@@ -152,7 +161,10 @@ function getAllChainsWithNames()
 function quoteSendToChain(uint32 targetChainEid) external view returns (MessagingFee memory fee)
 ```
 
-## Supported Networks
+</details>
+
+<details>
+<summary><h2>Supported Networks</h2></summary>
 
 | Network | Chain ID | LayerZero EID | Status | Gas Limit |
 |---------|----------|---------------|--------|-----------|
@@ -165,7 +177,10 @@ function quoteSendToChain(uint32 targetChainEid) external view returns (Messagin
 | **BSC** | 56 | 30102 | 🔄 Configurable | - |
 | **Optimism** | 10 | 30111 | 🔄 Configurable | - |
 
-## LayerZero V2 Configuration
+</details>
+
+<details>
+<summary><h2>LayerZero V2 Configuration</h2></summary>
 
 ### Cross-Chain Pathways
 ```typescript
@@ -197,7 +212,10 @@ function quoteSendToChain(uint32 targetChainEid) external view returns (Messagin
 - **Recommended Safety Margin**: 10%
 - **Note**: Fees vary based on gas prices and network congestion
 
-## Integration Examples
+</details>
+
+<details>
+<summary><h2>Integration Examples</h2></summary>
 
 ### Web3.js Example (Cross-Chain from Sonic)
 ```javascript
@@ -429,7 +447,10 @@ contract GameContract is IRandomWordsCallbackV2_5 {
 }
 ```
 
-## Testing & Maintenance
+</details>
+
+<details>
+<summary><h2>Testing & Maintenance</h2></summary>
 
 ### Quick Test Commands
 ```bash
@@ -462,7 +483,10 @@ cast send 0x697a9d438a5b61ea75aa823f98a85efb70fd23d5 \
 - ✅ Contract ETH balances for LayerZero fees
 - ✅ Request fulfillment times and success rates
 
-## Security Features
+</details>
+
+<details>
+<summary><h2>Security Features</h2></summary>
 
 - **Verified Contracts**: All contracts verified on respective explorers
 - **Ownership**: Controlled by `0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F`
@@ -471,7 +495,10 @@ cast send 0x697a9d438a5b61ea75aa823f98a85efb70fd23d5 \
 - **Access Control**: Authorization system for local VRF requests
 - **Fee Safety**: Proper ETH balance management for LayerZero fees
 
-## Performance Metrics
+</details>
+
+<details>
+<summary><h2>Performance Metrics</h2></summary>
 
 ### Success Rates
 - **Cross-Chain Requests**: >95% success rate
@@ -482,6 +509,8 @@ cast send 0x697a9d438a5b61ea75aa823f98a85efb70fd23d5 \
 - **Cross-Chain Request**: ~500,000 gas + LayerZero fees
 - **Local Request**: ~200,000 gas
 - **Callback Processing**: ~100,000 gas
+
+</details>
 
 ---
 

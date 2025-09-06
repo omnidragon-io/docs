@@ -7,10 +7,6 @@ sidebar_position: 10
 
 > **Multi-chain price oracle ecosystem powered by LayerZero for the OmniDragon protocol**
 
-[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-363636?style=flat-square&logo=solidity)](https://soliditylang.org/)
-[![LayerZero](https://img.shields.io/badge/LayerZero%20V2-lzRead-6366f1?style=flat-square)](https://layerzero.network/)
-[![Cross-Chain](https://img.shields.io/badge/Cross--Chain-Oracle-22c55e?style=flat-square)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
@@ -26,7 +22,8 @@ The OmniDragon Oracle Infrastructure provides **real-time cross-chain price feed
 
 **Primary Oracle Address**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777` (Same on both Sonic and Arbitrum)
 
-## Architecture
+<details>
+<summary><h2>Architecture</h2></summary>
 
 ```
 ┌─────────────────┐    LayerZero Read    ┌─────────────────┐
@@ -82,7 +79,10 @@ function setMode(uint8 mode) external
 - **Secondary Oracle** (Arbitrum): Requests prices via LayerZero Read
 - **Peer Configuration**: Automatic peer discovery and mapping
 
-## Oracle Feeds
+</details>
+
+<details>
+<summary><h2>Oracle Feeds</h2></summary>
 
 | **Feed** | **Network** | **Update Frequency** | **Reliability** |
 |----------|-------------|---------------------|-----------------|
@@ -92,7 +92,10 @@ function setMode(uint8 mode) external
 | API3 | Multiple | ~2 minutes | 🟡 Medium |
 | DEX TWAP | Sonic | Real-time | 🟢 High |
 
-## Deployment Status
+</details>
+
+<details>
+<summary><h2>Deployment Status</h2></summary>
 
 ### Current Deployments
 - **Sonic Oracle**: `0x69c1E310B9AD8BeA139696Df55A8Cb32A9f00777` (PRIMARY)
@@ -111,7 +114,10 @@ PRIMARY: Aggregates and provides prices
 SECONDARY: Requests prices from PRIMARY via LayerZero Read
 ```
 
-## Frontend Integration
+</details>
+
+<details>
+<summary><h2>Frontend Integration</h2></summary>
 
 ### Price Feed Access
 ```javascript
@@ -144,7 +150,10 @@ oracle.on('CrossChainPriceReceived', (targetEid, dragonPrice, nativePrice, times
 });
 ```
 
-## Recent Updates
+</details>
+
+<details>
+<summary><h2>Recent Updates</h2></summary>
 
 ### ✅ LayerZero Read Compatibility Fix (Latest)
 - **Fixed**: `_lzReceive` message format mismatch that caused execution reverts
@@ -158,7 +167,10 @@ oracle.on('CrossChainPriceReceived', (targetEid, dragonPrice, nativePrice, times
 - **LP Pair**: DRAGON/S pair properly configured with `setPair`
 - **TWAP**: Enabled for time-weighted average pricing
 
-## Security
+</details>
+
+<details>
+<summary><h2>Security</h2></summary>
 
 - **Multi-Signature**: Critical functions require multi-sig approval
 - **Oracle Redundancy**: Multiple independent price feeds
@@ -166,7 +178,10 @@ oracle.on('CrossChainPriceReceived', (targetEid, dragonPrice, nativePrice, times
 - **LayerZero Security**: Leverages LZ's battle-tested infrastructure
 - **Fixed LayerZero Read**: `getLatestPrice()` returns graceful values instead of reverting
 
-## API Reference
+</details>
+
+<details>
+<summary><h2>API Reference</h2></summary>
 
 ### Price Functions
 | Function | Description | Returns |
@@ -190,7 +205,10 @@ event CrossChainPriceReceived(uint32 targetEid, int256 dragonPrice, int256 nativ
 event PeerSet(uint32 eid, bytes32 peer);
 ```
 
-## Performance & Costs
+</details>
+
+<details>
+<summary><h2>Performance & Costs</h2></summary>
 
 ### Gas Costs
 - **Cross-chain request**: ~0.000034 ETH on Arbitrum
@@ -202,7 +220,10 @@ event PeerSet(uint32 eid, bytes32 peer);
 - **Cross-chain request**: 2-5 minutes (LayerZero confirmation time)
 - **Price feed updates**: Real-time to 5 minutes (varies by oracle)
 
-## Troubleshooting
+</details>
+
+<details>
+<summary><h2>Troubleshooting</h2></summary>
 
 ### Common Issues
 1. **"Price too stale"**: Check if oracle feeds are updating properly
@@ -216,7 +237,10 @@ const [price, timestamp] = await oracle.getLatestPrice();
 const isHealthy = price > 0 && timestamp > (Date.now()/1000 - 3600); // 1 hour tolerance
 ```
 
-## Quick Start
+</details>
+
+<details>
+<summary><h2>Quick Start</h2></summary>
 
 ### Prerequisites
 ```bash
@@ -235,6 +259,8 @@ cp .env.example .env
 cd deploy/OmniDragonOracle/
 cat DEPLOY.md
 ```
+
+</details>
 
 ---
 
