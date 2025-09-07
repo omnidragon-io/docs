@@ -13,35 +13,44 @@ Visual representations of the omniDRAGON protocol architecture, token flows, and
 
 ```mermaid
 graph TB
+    %% Define styles and themes
+    classDef userLayer fill:#667eea,stroke:#4c63d2,stroke-width:4px,color:#ffffff,font-weight:bold,shadow:lg
+    classDef protocolLayer fill:#764ba2,stroke:#5a3d7a,stroke-width:3px,color:#ffffff,font-weight:bold,shadow:lg
+    classDef contractLayer fill:#f093fb,stroke:#c44569,stroke-width:3px,color:#2d3748,font-weight:bold,shadow:lg
+    classDef blockchainLayer fill:#4facfe,stroke:#3a7bd5,stroke-width:2px,color:#ffffff,font-weight:bold,shadow:lg
+    classDef primaryChain fill:#00d4aa,stroke:#00a67e,stroke-width:4px,color:#ffffff,font-weight:bold,shadow:xl
+    classDef secondaryChain fill:#667eea,stroke:#4c63d2,stroke-width:3px,color:#ffffff,font-weight:bold,shadow:lg
+
     subgraph "User Interface Layer"
-        FE[Frontend dApps<br/>Web3 Interfaces]
-        DEX[DEX Trading<br/>10% Fee Applied]
-        WALLET[User Wallets<br/>Direct Interactions]
+        FE[Frontend dApps<br/><b>Web3 Interfaces</b>]:::userLayer
+        DEX[DEX Trading<br/><b>10% Fee Applied</b>]:::userLayer
+        WALLET[User Wallets<br/><b>Direct Interactions</b>]:::userLayer
     end
 
     subgraph "Protocol Logic Layer"
-        FEES[Smart Fee Detection<br/>Trading vs Liquidity]
-        LOTTERY[Lottery System<br/>Swap-to-Win Mechanics]
-        BRIDGE[Cross-Chain Transfers<br/>0% Fees - LayerZero OFT]
+        FEES[Smart Fee Detection<br/><b>Trading vs Liquidity</b>]:::protocolLayer
+        LOTTERY[Lottery System<br/><b>Swap-to-Win Mechanics</b>]:::protocolLayer
+        BRIDGE[Cross-Chain Transfers<br/><b>0% Fees - LayerZero OFT</b>]:::protocolLayer
     end
 
     subgraph "Core Smart Contracts"
-        DRAGON[omniDRAGON<br/>OFT Token Contract]
-        REGISTRY[OmniDragon Registry<br/>Contract Directory]
-        ORACLE[OmniDragon Oracle<br/>Multi-Source Price Feeds]
-        LOTTERY_MGR[Lottery Manager<br/>Jackpot Coordination]
-        VRF[VRF System<br/>Chainlink Randomness]
-        FEE_DIST[Fee Distribution<br/>Revenue Sharing]
+        DRAGON[omniDRAGON<br/><b>OFT Token Contract</b>]:::contractLayer
+        REGISTRY[OmniDragon Registry<br/><b>Contract Directory</b>]:::contractLayer
+        ORACLE[OmniDragon Oracle<br/><b>Multi-Source Price Feeds</b>]:::contractLayer
+        LOTTERY_MGR[Lottery Manager<br/><b>Jackpot Coordination</b>]:::contractLayer
+        VRF[VRF System<br/><b>Chainlink Randomness</b>]:::contractLayer
+        FEE_DIST[Fee Distribution<br/><b>Revenue Sharing</b>]:::contractLayer
     end
 
     subgraph "Blockchain Infrastructure"
-        SONIC[Sonic Network<br/>Primary Chain<br/>EID: 30332]
-        ARBITRUM[Arbitrum One<br/>Secondary Chain<br/>EID: 30110]
-        ETHEREUM[Ethereum Mainnet<br/>Secondary Chain<br/>EID: 30101]
-        BASE[Base Network<br/>Secondary Chain<br/>EID: 30184]
-        AVALANCHE[Avalanche C-Chain<br/>Secondary Chain<br/>EID: 30106]
+        SONIC[Sonic Network<br/><b>Primary Chain</b><br/>EID: 30332]:::primaryChain
+        ARBITRUM[Arbitrum One<br/><b>Secondary Chain</b><br/>EID: 30110]:::secondaryChain
+        ETHEREUM[Ethereum Mainnet<br/><b>Secondary Chain</b><br/>EID: 30101]:::secondaryChain
+        BASE[Base Network<br/><b>Secondary Chain</b><br/>EID: 30184]:::secondaryChain
+        AVALANCHE[Avalanche C-Chain<br/><b>Secondary Chain</b><br/>EID: 30106]:::secondaryChain
     end
 
+    %% Connection flows with enhanced styling
     FE --> FEES
     DEX --> FEES
     WALLET --> FEES
@@ -63,13 +72,12 @@ graph TB
     ETHEREUM <--> BASE
     BASE <--> AVALANCHE
 
-    style SONIC fill:#e8f5e8,stroke:#4caf50,stroke-width:3px
-    style ARBITRUM fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-    style ETHEREUM fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-    style BASE fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-    style AVALANCHE fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-
-    linkStyle 12,13,14,15 stroke:#ff9800,stroke-width:3px,stroke-dasharray: 5 5
+    %% Enhanced link styling
+    linkStyle 0,1,2 stroke:#667eea,stroke-width:3px,stroke-dasharray: none
+    linkStyle 3,4 stroke:#764ba2,stroke-width:3px,stroke-dasharray: none
+    linkStyle 5,6,7 stroke:#f093fb,stroke-width:2px,stroke-dasharray: none
+    linkStyle 8,9,10,11 stroke:#4facfe,stroke-width:2px,stroke-dasharray: none
+    linkStyle 12,13,14,15 stroke:#00d4aa,stroke-width:4px,stroke-dasharray: 2 5
 ```
 
 ## Token Flow Diagrams
@@ -78,79 +86,117 @@ graph TB
 
 ```mermaid
 flowchart TD
-    A[User DEX Trade<br/>10% Fee Collected] --> B{Smart Fee Detection<br/>Trading Operation?}
+    %% Define beautiful styling classes
+    classDef tradeStart fill:#4ade80,stroke:#22c55e,stroke-width:4px,color:#ffffff,font-weight:bold,font-size:14px,shadow:lg
+    classDef decision fill:#f59e0b,stroke:#d97706,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef lottery fill:#dc2626,stroke:#b91c1c,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef revenue fill:#3b82f6,stroke:#2563eb,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef burn fill:#7c3aed,stroke:#5b21b6,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef zeroFee fill:#10b981,stroke:#059669,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
 
-    B -->|Yes - DEX Trade| C[Lottery Pool<br/>6.9% of Fee]
-    B -->|No - Transfer/Liquidity| D[Zero Fee Operation<br/>No Distribution]
+    A[<b>User DEX Trade</b><br/>10% Fee Collected<br/><i>$1,000 trade = $100 fee</i>]:::tradeStart
+    B{<b>Smart Fee Detection</b><br/>Trading Operation?<br/><i>DEX vs Liquidity</i>}:::decision
 
-    C --> E[Jackpot Vault<br/>Unified Cross-Chain Pool]
-    C --> F[Lottery Odds Calculation<br/>Dynamic Probability]
+    B -->|Yes - DEX Trade| C[<b>Lottery Pool</b><br/>6.9% of Fee<br/><i>$69 → Jackpots</i>]:::lottery
+    B -->|No - Transfer/Liquidity| D[<b>Zero Fee Operation</b><br/>No Distribution<br/><i>Free transfers</i>]:::zeroFee
 
-    B -->|Yes - DEX Trade| G[Revenue Distribution<br/>2.41% of Fee]
-    G --> H[veDRAGON Stakers<br/>Time-Weighted Rewards]
+    C --> E[<b>Jackpot Vault</b><br/>Unified Cross-Chain Pool<br/><i>Accumulated prizes</i>]:::lottery
+    C --> F[<b>Lottery Odds</b><br/>Dynamic Probability<br/><i>Trade size affects odds</i>]:::lottery
 
-    B -->|Yes - DEX Trade| I[Burn Mechanism<br/>0.69% of Fee]
-    I --> J[Dead Address<br/>Permanent Removal]
+    B -->|Yes - DEX Trade| G[<b>Revenue Distribution</b><br/>2.41% of Fee<br/><i>$24.10 → Stakers</i>]:::revenue
+    G --> H[<b>veDRAGON Stakers</b><br/>Time-Weighted Rewards<br/><i>Lock for boosted yields</i>]:::revenue
 
-    style A fill:#e8f5e8,stroke:#4caf50
-    style E fill:#fff3e0,stroke:#ff9800
-    style H fill:#e3f2fd,stroke:#2196f3
-    style J fill:#ffebee,stroke:#f44336
-    style D fill:#f3e5f5,stroke:#9c27b0
+    B -->|Yes - DEX Trade| I[<b>Burn Mechanism</b><br/>0.69% of Fee<br/><i>$6.90 → Dead address</i>]:::burn
+    I --> J[<b>Dead Address</b><br/>Permanent Removal<br/><i>Deflationary burn</i>]:::burn
+
+    %% Enhanced link styling with gradients
+    linkStyle 0 stroke:#4ade80,stroke-width:4px
+    linkStyle 1 stroke:#dc2626,stroke-width:3px
+    linkStyle 2 stroke:#10b981,stroke-width:3px
+    linkStyle 3 stroke:#dc2626,stroke-width:2px
+    linkStyle 4 stroke:#dc2626,stroke-width:2px
+    linkStyle 5 stroke:#3b82f6,stroke-width:3px
+    linkStyle 6 stroke:#3b82f6,stroke-width:2px
+    linkStyle 7 stroke:#7c3aed,stroke-width:3px
+    linkStyle 8 stroke:#7c3aed,stroke-width:2px
 ```
 
 ### Lottery Win Flow
 
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant DEX as DEX
-    participant LM as Lottery Manager
-    participant VRF_I as VRF Integrator<br/>(Sonic)
-    participant LZ as LayerZero
-    participant VRF_C as VRF Consumer<br/>(Arbitrum)
-    participant CL as Chainlink VRF
-    participant W as Winner
+    %% Define participant styles with enhanced formatting
+    participant U as <b>User</b><br/>Trader
+    participant DEX as <b>DEX Platform</b><br/>Exchange
+    participant LM as <b>Lottery Manager</b><br/>Coordinator
+    participant VRF_I as <b>VRF Integrator</b><br/>Sonic
+    participant LZ as <b>LayerZero</b><br/>Bridge
+    participant VRF_C as <b>VRF Consumer</b><br/>Arbitrum
+    participant CL as <b>Chainlink VRF</b><br/>Oracle
+    participant W as <b>Winner</b><br/>Recipient
 
-    Note over U,W: Lottery Win Sequence Flow
+    %% Enhanced styling with colored rectangles
+    Note over U,W: <b>Lottery Draw Sequence</b><br/>Cross-Chain VRF → Winner Selection → Prize Distribution
 
-    U->>DEX: Execute DEX Trade
-    DEX->>LM: Collect 10% Fee (6.9% to Lottery)
-    LM->>VRF_I: Request Randomness
-    VRF_I->>LZ: Cross-Chain Message
-    LZ->>VRF_C: Deliver Request (Arbitrum)
-    VRF_C->>CL: Chainlink VRF Request
-    CL-->>VRF_C: Return Random Number
-    VRF_C->>LZ: Send Result Back
-    LZ->>LM: Callback with Randomness
-    LM->>LM: Select Winner Based on Randomness
-    LM->>W: 🎉 Automatic Prize Distribution
+    rect rgb(240, 253, 244)
+        U->>+DEX: <b>1. Execute DEX Trade</b><br/>$1,000 swap
+        DEX->>+LM: <b>2. Collect 10% Fee</b><br/>$100 total ($69 to lottery)
+        LM->>+VRF_I: <b>3. Request Randomness</b><br/>Cross-chain VRF call
+    end
 
-    Note right of W: Winner receives jackpot instantly!
+    rect rgb(254, 249, 195)
+        VRF_I->>+LZ: <b>4. Send Cross-Chain Message</b><br/>Sonic → Arbitrum
+        LZ->>+VRF_C: <b>5. Deliver Request</b><br/>LayerZero endpoint
+        VRF_C->>+CL: <b>6. Chainlink VRF Request</b><br/>Provably fair randomness
+        CL-->>-VRF_C: <b>7. Return Random Number</b><br/>Secure random value
+    end
+
+    rect rgb(220, 252, 231)
+        VRF_C->>+LZ: <b>8. Send Result Back</b><br/>Arbitrum → Sonic
+        LZ->>+VRF_I: <b>9. Callback with Randomness</b><br/>Cross-chain response
+        VRF_I->>+LM: <b>10. Return Randomness</b><br/>Complete VRF cycle
+        LM->>LM: <b>11. Select Winner</b><br/>Algorithm-based selection
+    end
+
+    rect rgb(186, 230, 253)
+        LM->>+W: <b>12. Automatic Prize Distribution</b><br/>Instant transfer
+        Note right of W: <b>Winner receives jackpot instantly</b><br/>No claiming required<br/>Instant payout
+    end
 ```
 
 ### Cross-Chain Transfer Flow
 
 ```mermaid
 flowchart TD
-    A[User Initiates Transfer<br/>DRAGON Tokens] --> B[Quote LayerZero Fee<br/>~0.000034 ETH]
+    %% Define beautiful styling classes for cross-chain flow
+    classDef startPoint fill:#4ade80,stroke:#22c55e,stroke-width:4px,color:#ffffff,font-weight:bold,font-size:14px,shadow:lg
+    classDef quoteStep fill:#f59e0b,stroke:#d97706,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef decision fill:#dc2626,stroke:#b91c1c,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef network fill:#3b82f6,stroke:#2563eb,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef endpoint fill:#7c3aed,stroke:#5b21b6,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef contract fill:#059669,stroke:#047857,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef success fill:#10b981,stroke:#059669,stroke-width:4px,color:#ffffff,font-weight:bold,font-size:14px,shadow:xl
 
-    B --> C{Pay LZ Fee<br/>+ Send Message}
+    A[<b>User Initiates Transfer</b><br/>DRAGON Tokens<br/><i>1000 DRAGON → Arbitrum</i>]:::startPoint
+    B[<b>Quote LayerZero Fee</b><br/>Calculate Cross-Chain Cost<br/><i>~0.000034 ETH</i>]:::quoteStep
 
-    C --> D[LayerZero Network<br/>Message Routing]
+    B --> C{<b>Pay LZ Fee + Send Message</b><br/>Confirm transaction<br/><i>Gas + Bridge fee</i>}:::decision
 
-    D --> E[LZ Endpoint<br/>Destination Chain]
+    C --> D[<b>LayerZero Network</b><br/>Message Routing<br/><i>Secure cross-chain delivery</i>]:::network
 
-    E --> F[omniDRAGON Contract<br/>Destination Chain]
+    D --> E[<b>LZ Endpoint</b><br/>Destination Chain<br/><i>Arbitrum network</i>]:::endpoint
 
-    F --> G[Tokens Minted<br/>Recipient Receives DRAGON]
+    E --> F[<b>omniDRAGON Contract</b><br/>Destination Chain<br/><i>Same address on all chains</i>]:::contract
 
-    style A fill:#e8f5e8,stroke:#4caf50
-    style B fill:#fff3e0,stroke:#ff9800
-    style D fill:#e3f2fd,stroke:#2196f3
-    style G fill:#c8e6c9,stroke:#4caf50
+    F --> G[<b>Tokens Minted</b><br/>Recipient Receives DRAGON<br/><i>Instant cross-chain transfer</i>]:::success
 
-    linkStyle 0,1,2,3,4,5 stroke:#2196f3,stroke-width:2px
+    %% Enhanced gradient link styling
+    linkStyle 0 stroke:#4ade80,stroke-width:4px,stroke-dasharray: none
+    linkStyle 1 stroke:#f59e0b,stroke-width:3px,stroke-dasharray: none
+    linkStyle 2 stroke:#dc2626,stroke-width:3px,stroke-dasharray: none
+    linkStyle 3 stroke:#3b82f6,stroke-width:3px,stroke-dasharray: none
+    linkStyle 4 stroke:#7c3aed,stroke-width:3px,stroke-dasharray: none
+    linkStyle 5 stroke:#059669,stroke-width:4px,stroke-dasharray: none
 ```
 
 ## Component Architecture
@@ -159,27 +205,34 @@ flowchart TD
 
 ```mermaid
 graph TD
+    %% Define beautiful styling classes for contract dependencies
+    classDef userApps fill:#667eea,stroke:#4c63d2,stroke-width:4px,color:#ffffff,font-weight:bold,font-size:14px,shadow:lg
+    classDef coreContracts fill:#f093fb,stroke:#c44569,stroke-width:3px,color:#2d3748,font-weight:bold,font-size:13px,shadow:lg
+    classDef externalDeps fill:#4facfe,stroke:#3a7bd5,stroke-width:3px,color:#ffffff,font-weight:bold,font-size:13px,shadow:lg
+    classDef mainEntry fill:#dc2626,stroke:#b91c1c,stroke-width:4px,color:#ffffff,font-weight:bold,font-size:15px,shadow:xl
+
     subgraph "User Applications"
-        DAPP[Frontend dApp<br/>Web3 Interface]
-        SCRIPT[Automation Script<br/>Bot/Strategy]
+        DAPP[<b>Frontend dApp</b><br/>Web3 Interface<br/><i>React/Vue/Angular</i>]:::userApps
+        SCRIPT[<b>Automation Script</b><br/>Bot/Strategy<br/><i>Node.js/Python</i>]:::userApps
     end
 
     subgraph "Core Protocol Contracts"
-        DRAGON([omniDRAGON<br/>OFT Token<br/>Main Entry Point])
-        FEESYS([Fee Detection<br/>Smart Logic])
-        LOTTERY([Lottery Manager<br/>Jackpot Coordination])
-        REGISTRY([OmniDragon Registry<br/>Contract Directory])
-        ORACLE([OmniDragon Oracle<br/>Price Feeds])
-        VRF([VRF System<br/>Randomness])
+        DRAGON([<b>omniDRAGON</b><br/>OFT Token<br/><i>Main Entry Point</i><br/>Cross-chain token]):::mainEntry
+        FEESYS([<b>Fee Detection</b><br/>Smart Logic<br/><i>Trading vs Liquidity</i><br/>AI-powered analysis]):::coreContracts
+        LOTTERY([<b>Lottery Manager</b><br/>Jackpot Coordination<br/><i>Winner selection</i><br/>Prize distribution]):::coreContracts
+        REGISTRY([<b>OmniDragon Registry</b><br/>Contract Directory<br/><i>Address management</i><br/>Contract registry]):::coreContracts
+        ORACLE([<b>OmniDragon Oracle</b><br/>Price Feeds<br/><i>Multi-source data</i><br/>Cross-chain oracles]):::coreContracts
+        VRF([<b>VRF System</b><br/>Randomness<br/><i>Provably fair</i><br/>Chainlink VRF]):::coreContracts
     end
 
     subgraph "External Dependencies"
-        LZ([LayerZero V2<br/>Cross-Chain Messaging])
-        CHAINLINK([Chainlink VRF<br/>Provable Randomness])
-        PYTH([Pyth Network<br/>Price Oracles])
-        API3([API3<br/>Decentralized Oracles])
+        LZ([<b>LayerZero V2</b><br/>Cross-Chain Messaging<br/><i>Secure bridging</i><br/>LZ OFT protocol]):::externalDeps
+        CHAINLINK([<b>Chainlink VRF</b><br/>Provable Randomness<br/><i>Cryptographic security</i><br/>Decentralized oracle]):::externalDeps
+        PYTH([<b>Pyth Network</b><br/>Price Oracles<br/><i>High-frequency data</i><br/>Real-time feeds]):::externalDeps
+        API3([<b>API3</b><br/>Decentralized Oracles<br/><i>First-party data</i><br/>Direct API access]):::externalDeps
     end
 
+    %% Connection flows with enhanced styling
     DAPP --> DRAGON
     SCRIPT --> DRAGON
 
@@ -197,10 +250,12 @@ graph TD
     DRAGON --> LZ
     VRF --> LZ
 
-    style DRAGON fill:#ffebee,stroke:#f44336,stroke-width:3px
-    style FEESYS fill:#fff3e0,stroke:#ff9800
-    style LOTTERY fill:#f3e5f5,stroke:#9c27b0
-    style LZ fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    %% Enhanced link styling with different colors for different flows
+    linkStyle 0,1 stroke:#667eea,stroke-width:3px,stroke-dasharray: 2 5
+    linkStyle 2,3 stroke:#f093fb,stroke-width:2px,stroke-dasharray: none
+    linkStyle 4,5,6 stroke:#f093fb,stroke-width:2px,stroke-dasharray: none
+    linkStyle 7,8,9 stroke:#4facfe,stroke-width:2px,stroke-dasharray: none
+    linkStyle 10,11 stroke:#4facfe,stroke-width:3px,stroke-dasharray: none
 ```
 
 ### Network Architecture
