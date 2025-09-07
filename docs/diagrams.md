@@ -14,32 +14,32 @@ Visual representations of the omniDRAGON protocol architecture, token flows, and
 ```mermaid
 graph TB
     subgraph "User Interface Layer"
-        FE[🎨 Frontend dApps<br/>Web3 Interfaces]
-        DEX[💱 DEX Trading<br/>10% Fee Applied]
-        WALLET[👛 User Wallets<br/>Direct Interactions]
+        FE[Frontend dApps<br/>Web3 Interfaces]
+        DEX[DEX Trading<br/>10% Fee Applied]
+        WALLET[User Wallets<br/>Direct Interactions]
     end
 
     subgraph "Protocol Logic Layer"
-        FEES[🧠 Smart Fee Detection<br/>Trading vs Liquidity]
-        LOTTERY[🎰 Lottery System<br/>Swap-to-Win Mechanics]
-        BRIDGE[🌐 Cross-Chain Transfers<br/>0% Fees - LayerZero OFT]
+        FEES[Smart Fee Detection<br/>Trading vs Liquidity]
+        LOTTERY[Lottery System<br/>Swap-to-Win Mechanics]
+        BRIDGE[Cross-Chain Transfers<br/>0% Fees - LayerZero OFT]
     end
 
     subgraph "Core Smart Contracts"
-        DRAGON[🐉 omniDRAGON<br/>OFT Token Contract]
-        REGISTRY[📋 OmniDragon Registry<br/>Contract Directory]
-        ORACLE[🔮 OmniDragon Oracle<br/>Multi-Source Price Feeds]
-        LOTTERY_MGR[🎲 Lottery Manager<br/>Jackpot Coordination]
-        VRF[🎯 VRF System<br/>Chainlink Randomness]
-        FEE_DIST[💰 Fee Distribution<br/>Revenue Sharing]
+        DRAGON[omniDRAGON<br/>OFT Token Contract]
+        REGISTRY[OmniDragon Registry<br/>Contract Directory]
+        ORACLE[OmniDragon Oracle<br/>Multi-Source Price Feeds]
+        LOTTERY_MGR[Lottery Manager<br/>Jackpot Coordination]
+        VRF[VRF System<br/>Chainlink Randomness]
+        FEE_DIST[Fee Distribution<br/>Revenue Sharing]
     end
 
     subgraph "Blockchain Infrastructure"
-        SONIC[Sonic Network<br/>🟢 Primary Chain<br/>EID: 30332]
-        ARBITRUM[Arbitrum One<br/>🔵 Secondary Chain<br/>EID: 30110]
-        ETHEREUM[Ethereum Mainnet<br/>🔵 Secondary Chain<br/>EID: 30101]
-        BASE[Base Network<br/>🔵 Secondary Chain<br/>EID: 30184]
-        AVALANCHE[Avalanche C-Chain<br/>🔵 Secondary Chain<br/>EID: 30106]
+        SONIC[Sonic Network<br/>Primary Chain<br/>EID: 30332]
+        ARBITRUM[Arbitrum One<br/>Secondary Chain<br/>EID: 30110]
+        ETHEREUM[Ethereum Mainnet<br/>Secondary Chain<br/>EID: 30101]
+        BASE[Base Network<br/>Secondary Chain<br/>EID: 30184]
+        AVALANCHE[Avalanche C-Chain<br/>Secondary Chain<br/>EID: 30106]
     end
 
     FE --> FEES
@@ -78,19 +78,19 @@ graph TB
 
 ```mermaid
 flowchart TD
-    A[👤 User DEX Trade<br/>💰 10% Fee Collected] --> B{🧠 Smart Fee Detection<br/>Trading Operation?}
+    A[User DEX Trade<br/>10% Fee Collected] --> B{Smart Fee Detection<br/>Trading Operation?}
 
-    B -->|Yes - DEX Trade| C[🎰 Lottery Pool<br/>6.9% of Fee]
-    B -->|No - Transfer/Liquidity| D[✨ Zero Fee Operation<br/>No Distribution]
+    B -->|Yes - DEX Trade| C[Lottery Pool<br/>6.9% of Fee]
+    B -->|No - Transfer/Liquidity| D[Zero Fee Operation<br/>No Distribution]
 
-    C --> E[🎲 Jackpot Vault<br/>Unified Cross-Chain Pool]
-    C --> F[📊 Lottery Odds Calculation<br/>Dynamic Probability]
+    C --> E[Jackpot Vault<br/>Unified Cross-Chain Pool]
+    C --> F[Lottery Odds Calculation<br/>Dynamic Probability]
 
-    B -->|Yes - DEX Trade| G[💰 Revenue Distribution<br/>2.41% of Fee]
-    G --> H[🔒 veDRAGON Stakers<br/>Time-Weighted Rewards]
+    B -->|Yes - DEX Trade| G[Revenue Distribution<br/>2.41% of Fee]
+    G --> H[veDRAGON Stakers<br/>Time-Weighted Rewards]
 
-    B -->|Yes - DEX Trade| I[🔥 Burn Mechanism<br/>0.69% of Fee]
-    I --> J[♻️ Dead Address<br/>Permanent Removal]
+    B -->|Yes - DEX Trade| I[Burn Mechanism<br/>0.69% of Fee]
+    I --> J[Dead Address<br/>Permanent Removal]
 
     style A fill:#e8f5e8,stroke:#4caf50
     style E fill:#fff3e0,stroke:#ff9800
@@ -103,14 +103,14 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-    participant U as 👤 User
-    participant DEX as 💱 DEX
-    participant LM as 🎲 Lottery Manager
-    participant VRF_I as 🎯 VRF Integrator<br/>(Sonic)
-    participant LZ as 🌐 LayerZero
-    participant VRF_C as 🎯 VRF Consumer<br/>(Arbitrum)
-    participant CL as 🔗 Chainlink VRF
-    participant W as 🏆 Winner
+    participant U as User
+    participant DEX as DEX
+    participant LM as Lottery Manager
+    participant VRF_I as VRF Integrator<br/>(Sonic)
+    participant LZ as LayerZero
+    participant VRF_C as VRF Consumer<br/>(Arbitrum)
+    participant CL as Chainlink VRF
+    participant W as Winner
 
     Note over U,W: Lottery Win Sequence Flow
 
@@ -133,17 +133,17 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    A[👤 User Initiates Transfer<br/>🐉 DRAGON Tokens] --> B[📋 Quote LayerZero Fee<br/>~0.000034 ETH]
+    A[User Initiates Transfer<br/>DRAGON Tokens] --> B[Quote LayerZero Fee<br/>~0.000034 ETH]
 
-    B --> C{💰 Pay LZ Fee<br/>+ Send Message}
+    B --> C{Pay LZ Fee<br/>+ Send Message}
 
-    C --> D[🌐 LayerZero Network<br/>Message Routing]
+    C --> D[LayerZero Network<br/>Message Routing]
 
-    D --> E[📡 LZ Endpoint<br/>Destination Chain]
+    D --> E[LZ Endpoint<br/>Destination Chain]
 
-    E --> F[🎯 omniDRAGON Contract<br/>Destination Chain]
+    E --> F[omniDRAGON Contract<br/>Destination Chain]
 
-    F --> G[✅ Tokens Minted<br/>Recipient Receives DRAGON]
+    F --> G[Tokens Minted<br/>Recipient Receives DRAGON]
 
     style A fill:#e8f5e8,stroke:#4caf50
     style B fill:#fff3e0,stroke:#ff9800
@@ -160,24 +160,24 @@ flowchart TD
 ```mermaid
 graph TD
     subgraph "User Applications"
-        DAPP[🎨 Frontend dApp<br/>Web3 Interface]
-        SCRIPT[🤖 Automation Script<br/>Bot/Strategy]
+        DAPP[Frontend dApp<br/>Web3 Interface]
+        SCRIPT[Automation Script<br/>Bot/Strategy]
     end
 
     subgraph "Core Protocol Contracts"
-        DRAGON([🐉 omniDRAGON<br/>OFT Token<br/>Main Entry Point])
-        FEESYS([🧠 Fee Detection<br/>Smart Logic])
-        LOTTERY([🎰 Lottery Manager<br/>Jackpot Coordination])
-        REGISTRY([📋 OmniDragon Registry<br/>Contract Directory])
-        ORACLE([🔮 OmniDragon Oracle<br/>Price Feeds])
-        VRF([🎯 VRF System<br/>Randomness])
+        DRAGON([omniDRAGON<br/>OFT Token<br/>Main Entry Point])
+        FEESYS([Fee Detection<br/>Smart Logic])
+        LOTTERY([Lottery Manager<br/>Jackpot Coordination])
+        REGISTRY([OmniDragon Registry<br/>Contract Directory])
+        ORACLE([OmniDragon Oracle<br/>Price Feeds])
+        VRF([VRF System<br/>Randomness])
     end
 
     subgraph "External Dependencies"
-        LZ([🌐 LayerZero V2<br/>Cross-Chain Messaging])
-        CHAINLINK([🔗 Chainlink VRF<br/>Provable Randomness])
-        PYTH([📊 Pyth Network<br/>Price Oracles])
-        API3([📈 API3<br/>Decentralized Oracles])
+        LZ([LayerZero V2<br/>Cross-Chain Messaging])
+        CHAINLINK([Chainlink VRF<br/>Provable Randomness])
+        PYTH([Pyth Network<br/>Price Oracles])
+        API3([API3<br/>Decentralized Oracles])
     end
 
     DAPP --> DRAGON
@@ -208,20 +208,20 @@ graph TD
 ```mermaid
 graph TD
     subgraph "Primary Chain"
-        SONIC[Sonic Network<br/>🟢 Chain ID: 146<br/>LZ EID: 30332<br/>Status: Active]
+        SONIC[Sonic Network<br/>Chain ID: 146<br/>LZ EID: 30332<br/>Status: Active]
     end
 
     subgraph "Secondary Chains"
-        ARBITRUM[Arbitrum One<br/>🔵 Chain ID: 42161<br/>LZ EID: 30110<br/>Status: Active]
-        ETHEREUM[Ethereum<br/>🔵 Chain ID: 1<br/>LZ EID: 30101<br/>Status: Active]
-        BASE[Base<br/>🔵 Chain ID: 8453<br/>LZ EID: 30184<br/>Status: Active]
-        AVALANCHE[Avalanche<br/>🔵 Chain ID: 43114<br/>LZ EID: 30106<br/>Status: Active]
+        ARBITRUM[Arbitrum One<br/>Chain ID: 42161<br/>LZ EID: 30110<br/>Status: Active]
+        ETHEREUM[Ethereum<br/>Chain ID: 1<br/>LZ EID: 30101<br/>Status: Active]
+        BASE[Base<br/>Chain ID: 8453<br/>LZ EID: 30184<br/>Status: Active]
+        AVALANCHE[Avalanche<br/>Chain ID: 43114<br/>LZ EID: 30106<br/>Status: Active]
     end
 
     subgraph "Planned Chains"
-        POLYGON[Polygon<br/>🟡 Chain ID: 137<br/>LZ EID: 30109<br/>Status: Planned]
-        BSC[BSC<br/>🟡 Chain ID: 56<br/>LZ EID: 30102<br/>Status: Planned]
-        OPTIMISM[Optimism<br/>🟡 Chain ID: 10<br/>LZ EID: 30111<br/>Status: Planned]
+        POLYGON[Polygon<br/>Chain ID: 137<br/>LZ EID: 30109<br/>Status: Planned]
+        BSC[BSC<br/>Chain ID: 56<br/>LZ EID: 30102<br/>Status: Planned]
+        OPTIMISM[Optimism<br/>Chain ID: 10<br/>LZ EID: 30111<br/>Status: Planned]
     end
 
     SONIC --- ARBITRUM
@@ -258,19 +258,19 @@ graph TD
 
 ```mermaid
 flowchart TD
-    CL[🔗 Chainlink<br/>Price Feed<br/>Real-time Data] --> AGG
-    PYTH[📊 Pyth Network<br/>Price Feed<br/>High Frequency] --> AGG
-    API3[📈 API3<br/>Price Feed<br/>Decentralized] --> AGG
+    CL[Chainlink<br/>Price Feed<br/>Real-time Data] --> AGG
+    PYTH[Pyth Network<br/>Price Feed<br/>High Frequency] --> AGG
+    API3[API3<br/>Price Feed<br/>Decentralized] --> AGG
 
-    AGG[🔮 Price Aggregation<br/>Engine<br/>Weighted Average] --> VAL
+    AGG[Price Aggregation<br/>Engine<br/>Weighted Average] --> VAL
 
-    VAL[✅ Price Validation<br/>Engine<br/>Outlier Detection] --> FINAL
+    VAL[Price Validation<br/>Engine<br/>Outlier Detection] --> FINAL
 
-    FINAL[💰 Final DRAGON Price<br/>USD Value<br/>18 decimals]
+    FINAL[Final DRAGON Price<br/>USD Value<br/>18 decimals]
 
-    CL -.-> LZ1[🌐 LayerZero Sync]
-    PYTH -.-> LZ2[🌐 LayerZero Sync]
-    API3 -.-> LZ3[🌐 LayerZero Sync]
+    CL -.-> LZ1[LayerZero Sync]
+    PYTH -.-> LZ2[LayerZero Sync]
+    API3 -.-> LZ3[LayerZero Sync]
 
     LZ1 --> AGG
     LZ2 --> AGG
@@ -288,21 +288,21 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    STAKERS[👥 veDRAGON Stakers<br/>🔒 Locked DRAGON Tokens<br/>⏰ Time-Weighted Voting] --> VOTING
+    STAKERS[veDRAGON Stakers<br/>Locked DRAGON Tokens<br/>Time-Weighted Voting] --> VOTING
 
-    VOTING[🗳️ Voting Power<br/>Calculation<br/>veDRAGON Balance × Lock Time] --> DECISIONS
+    VOTING[Voting Power<br/>Calculation<br/>veDRAGON Balance × Lock Time] --> DECISIONS
 
-    PROPOSALS[📝 Proposal System<br/>Governance Proposals<br/>Parameter Changes] --> DECISIONS
+    PROPOSALS[Proposal System<br/>Governance Proposals<br/>Parameter Changes] --> DECISIONS
 
-    DECISIONS{🎯 Governance Decisions<br/>Community Voting<br/>Snapshot Voting} --> PARAMETERS
+    DECISIONS{Governance Decisions<br/>Community Voting<br/>Snapshot Voting} --> PARAMETERS
 
-    PARAMETERS[⚙️ Protocol Parameters<br/>Dynamic Configuration]
+    PARAMETERS[Protocol Parameters<br/>Dynamic Configuration]
 
-    PARAMETERS --> FEES[💰 Fee Rates<br/>Trading Fees<br/>Distribution Ratios]
+    PARAMETERS --> FEES[Fee Rates<br/>Trading Fees<br/>Distribution Ratios]
 
-    PARAMETERS --> LOTTERY[🎰 Lottery Settings<br/>Jackpot Sizes<br/>Win Probabilities]
+    PARAMETERS --> LOTTERY[Lottery Settings<br/>Jackpot Sizes<br/>Win Probabilities]
 
-    PARAMETERS --> ORACLE[🔮 Oracle Configuration<br/>Price Feed Sources<br/>Update Frequencies]
+    PARAMETERS --> ORACLE[Oracle Configuration<br/>Price Feed Sources<br/>Update Frequencies]
 
     style STAKERS fill:#e8f5e8,stroke:#4caf50,stroke-width:2px
     style VOTING fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
@@ -320,10 +320,10 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-    participant U as 👤 User
-    participant DEX as 💱 DEX Platform
-    participant DRAGON as 🐉 omniDRAGON Contract
-    participant LOTTERY as 🎰 Lottery Manager
+    participant U as User
+    participant DEX as DEX Platform
+    participant DRAGON as omniDRAGON Contract
+    participant LOTTERY as Lottery Manager
 
     Note over U,LOTTERY: DEX Trade → Fee Collection → Lottery Entry Flow
 
@@ -348,12 +348,12 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant LM as 🎰 Lottery Manager
-    participant VRF_I as 🎯 VRF Integrator<br/>(Sonic)
-    participant LZ as 🌐 LayerZero V2
-    participant VRF_C as 🎯 VRF Consumer<br/>(Arbitrum)
-    participant CL as 🔗 Chainlink VRF
-    participant WINNER as 🏆 Winner
+    participant LM as Lottery Manager
+    participant VRF_I as VRF Integrator<br/>(Sonic)
+    participant LZ as LayerZero V2
+    participant VRF_C as VRF Consumer<br/>(Arbitrum)
+    participant CL as Chainlink VRF
+    participant WINNER as Winner
 
     Note over LM,WINNER: Lottery Draw → Cross-Chain VRF → Winner Selection Flow
 
@@ -366,9 +366,9 @@ sequenceDiagram
     LZ->>VRF_I: 7. Callback with Random Number
     VRF_I->>LM: 8. Return Randomness to Lottery
     LM->>LM: 9. Select Winner Based on Randomness
-    LM->>WINNER: 10. 🎉 Automatic Prize Distribution
+    LM->>WINNER: 10. Automatic Prize Distribution
 
-    Note right of WINNER: Winner receives jackpot instantly<br/>No claiming required!
+    Note right of WINNER: Winner receives jackpot instantly<br/>No claiming required
 ```
 
 ## State Diagrams
