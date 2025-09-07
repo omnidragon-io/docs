@@ -9,7 +9,7 @@ sidebar_position: 30
 
 ### ChainlinkVRFIntegratorV2_5.sol (Sonic)
 
-**Contract Address**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`  
+**Contract Address**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777`  
 **Network**: Sonic (Chain ID: 146)  
 **Solidity Version**: `^0.8.20`  
 **License**: MIT
@@ -49,7 +49,7 @@ struct RequestStatus {
 
 ### OmniDragonVRFConsumerV2_5.sol (Arbitrum)
 
-**Contract Address**: `0x697a9d438a5b61ea75aa823f98a85efb70fd23d5`  
+**Contract Address**: `0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5`  
 **Network**: Arbitrum (Chain ID: 42161)  
 **Solidity Version**: `^0.8.20`  
 **License**: MIT
@@ -369,7 +369,7 @@ contract CrossChainGameContract {
     }
     
     constructor() {
-        vrfIntegrator = IChainlinkVRFIntegratorV2_5(0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5);
+        vrfIntegrator = IChainlinkVRFIntegratorV2_5(0x694f00e7CAB26F9D05261c3d62F52a81DE18A777);
     }
     
     function startGame() external payable {
@@ -440,7 +440,7 @@ contract LocalVRFGameContract is IVRFCallbackReceiver {
     }
     
     constructor() {
-        vrfConsumer = IOmniDragonVRFConsumer(0x697a9d438a5b61ea75aa823f98a85efb70fd23d5);
+        vrfConsumer = IOmniDragonVRFConsumer(0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5);
     }
     
     function startLocalGame() external payable {

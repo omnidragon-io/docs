@@ -54,18 +54,18 @@ The OmniDragon VRF System provides **verifiable random number generation** acros
 <summary><h2>Deployment Details</h2></summary>
 
 ### Sonic Network (Primary Integrator)
-- **ChainlinkVRFIntegratorV2_5**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
+- **ChainlinkVRFIntegratorV2_5**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777`
 - **Chain ID**: 146
 - **LayerZero EID**: 30332
-- **Explorer**: [View on Sonicscan](https://sonicscan.org/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
+- **Explorer**: [View on Sonicscan](https://sonicscan.org/address/0x694f00e7CAB26F9D05261c3d62F52a81DE18A777)
 - **Status**: ✅ Verified and Operational
 
 ### Arbitrum Network (VRF Hub)
-- **OmniDragonVRFConsumerV2_5**: `0x697a9d438a5b61ea75aa823f98a85efb70fd23d5`
-- **ChainlinkVRFIntegratorV2_5**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
+- **OmniDragonVRFConsumerV2_5**: `0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5`
+- **ChainlinkVRFIntegratorV2_5**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777`
 - **Chain ID**: 42161
 - **LayerZero EID**: 30110
-- **Explorer**: [View on Arbiscan](https://arbiscan.io/address/0x697a9d438a5b61ea75aa823f98a85efb70fd23d5)
+- **Explorer**: [View on Arbiscan](https://arbiscan.io/address/0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5)
 - **Status**: ✅ Verified and Operational
 
 ### Registry Addresses
@@ -87,7 +87,7 @@ The OmniDragon VRF System provides **verifiable random number generation** acros
   gasLane: "30 gwei",
   network: "arbitrum",
   funded: true,
-  authorizedConsumers: ["0x697a9d438a5b61ea75aa823f98a85efb70fd23d5"]
+  authorizedConsumers: ["0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5"]
 }
 ```
 
@@ -222,7 +222,7 @@ function quoteSendToChain(uint32 targetChainEid) external view returns (Messagin
 const Web3 = require('web3');
 const web3 = new Web3('https://rpc.soniclabs.com/');
 
-const VRF_INTEGRATOR_ADDRESS = '0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5';
+const VRF_INTEGRATOR_ADDRESS = '0x694f00e7CAB26F9D05261c3d62F52a81DE18A777';
 const ARBITRUM_EID = 30110;
 
 const VRF_ABI = [
@@ -297,7 +297,7 @@ async function checkRandomness(requestId) {
 ```javascript
 const { ethers } = require('ethers');
 
-const VRF_CONSUMER_ADDRESS = '0x697a9d438a5b61ea75aa823f98a85efb70fd23d5';
+const VRF_CONSUMER_ADDRESS = '0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5';
 
 const VRF_CONSUMER_ABI = [
   {
@@ -387,8 +387,8 @@ interface IOmniDragonVRFConsumer {
 }
 
 contract GameContract is IRandomWordsCallbackV2_5 {
-    IChainlinkVRFIntegratorV2_5 constant sonicVRF = IChainlinkVRFIntegratorV2_5(0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5);
-    IOmniDragonVRFConsumer constant arbitrumVRF = IOmniDragonVRFConsumer(0x697a9d438a5b61ea75aa823f98a85efb70fd23d5);
+    IChainlinkVRFIntegratorV2_5 constant sonicVRF = IChainlinkVRFIntegratorV2_5(0x694f00e7CAB26F9D05261c3d62F52a81DE18A777);
+    IOmniDragonVRFConsumer constant arbitrumVRF = IOmniDragonVRFConsumer(0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5);
     
     uint32 constant ARBITRUM_EID = 30110;
     
@@ -455,22 +455,22 @@ contract GameContract is IRandomWordsCallbackV2_5 {
 ### Quick Test Commands
 ```bash
 # Get VRF fee quote (Sonic)
-cast call 0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5 "quoteFee()" --rpc-url https://rpc.soniclabs.com/
+cast call 0x694f00e7CAB26F9D05261c3d62F52a81DE18A777 "quoteFee()" --rpc-url https://rpc.soniclabs.com/
 
 # Request randomness with 0.2 ETH (Sonic → Arbitrum)
-cast send 0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5 \
+cast send 0x694f00e7CAB26F9D05261c3d62F52a81DE18A777 \
   "requestRandomWordsPayable(uint32)" 30110 \
   --value 0.2ether \
   --rpc-url https://rpc.soniclabs.com/ \
   --private-key $PRIVATE_KEY
 
 # Check request status
-cast call 0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5 \
+cast call 0x694f00e7CAB26F9D05261c3d62F52a81DE18A777 \
   "getRandomWord(uint64)" $REQUEST_ID \
   --rpc-url https://rpc.soniclabs.com/
 
 # Test local VRF (Arbitrum)
-cast send 0x697a9d438a5b61ea75aa823f98a85efb70fd23d5 \
+cast send 0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5 \
   "requestRandomWordsLocal()" \
   --rpc-url https://arbitrum-one.publicnode.com \
   --private-key $PRIVATE_KEY

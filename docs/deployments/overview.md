@@ -15,9 +15,8 @@ sidebar_position: 10
 **Registry**: `0x6940aDc0A505108bC11CA28EefB7E3BAc7AF0777`
 
 ### VRF Contracts
-**VRF Integrator (Sonic)**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`  
-**VRF Integrator (Arbitrum)**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`  
-**VRF Consumer (Arbitrum)**: `0x697a9d438a5b61ea75aa823f98a85efb70fd23d5`
+**Chainlink VRF Integrator**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777`  
+**OmniDragon VRF Consumer (Arbitrum)**: `0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5`
 
 ## Cross-Chain Bridge Example
 

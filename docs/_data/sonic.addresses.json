@@ -16,8 +16,8 @@
     "DragonFeeMHelper": "0xc47c9cabae8a6425f01f5769eda470e1d01e9fbf"
   },
   "VRF": {
-    "ChainlinkVRFIntegratorV2_5_Sonic": "0x5eD6B9D172a3e6cd89578477FcB0a542BbFb14e0",
-    "OmniDragonVRFConsumerV2_5_Arbitrum": "0x697a9d438a5b61ea75aa823f98a85efb70fd23d5"
+    "ChainlinkVRFIntegratorV2_5_Sonic": "0x694f00e7CAB26F9D05261c3d62F52a81DE18A777",
+    "OmniDragonVRFConsumerV2_5_Arbitrum": "0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5"
   },
   "RevenueAndBribes": {
     "veDRAGONRevenueDistributor": "0x6960cd77b3628b77d06871f114cde980434fa777",

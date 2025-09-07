@@ -30,22 +30,22 @@ The OmniDragon Cross-Chain VRF System is a cutting-edge implementation combining
 #### Sonic Mainnet
 - **Chain ID**: 146
 - **LayerZero EID**: 30272
-- **Integrator Contract**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
+- **Integrator Contract**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777`
 - **Status**: ✅ Verified and Operational
-- **Explorer**: [SonicScan](https://sonicscan.org/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
+- **Explorer**: [SonicScan](https://sonicscan.org/address/0x694f00e7CAB26F9D05261c3d62F52a81DE18A777)
 
 ## 📋 Contract Architecture
 
 ### Core Contracts
 
 #### ChainlinkVRFIntegratorV2_5
-- **Address**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5` (Multi-chain)
+- **Address**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777` (Multi-chain)
 - **Purpose**: Cross-chain VRF request gateway
 - **Deployment**: CREATE2 (consistent address across chains)
 - **Owner**: `0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F`
 
 #### OmniDragonVRFConsumerV2_5 (Arbitrum)
-- **Address**: `0x697a9d438a5b61ea75aa823f98a85efb70fd23d5`
+- **Address**: `0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5`
 - **Purpose**: Chainlink VRF consumer and LayerZero responder
 - **Transaction**: [`0xdcbb1d259680a0ef7b0c9bb606a24502bf600320c2a2e693ef5b9dbd62212f90`](https://arbiscan.io/tx/0xdcbb1d259680a0ef7b0c9bb606a24502bf600320c2a2e693ef5b9dbd62212f90)
 - **Block**: 365,508,952
@@ -104,11 +104,11 @@ function quoteWithGas(uint32 gasLimit) external view returns (MessagingFee memor
 
 ```solidity
 // 1. Get quote for cross-chain VRF request
-uint256 fee = IChainlinkVRFIntegratorV2_5(0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
+uint256 fee = IChainlinkVRFIntegratorV2_5(0x694f00e7CAB26F9D05261c3d62F52a81DE18A777)
     .quoteSimple().nativeFee;
 
 // 2. Make cross-chain VRF request
-IChainlinkVRFIntegratorV2_5(0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
+IChainlinkVRFIntegratorV2_5(0x694f00e7CAB26F9D05261c3d62F52a81DE18A777)
     .requestRandomWordsSimple{value: fee}(30110); // Arbitrum EID
 
 // 3. Implement callback to receive randomness
@@ -129,7 +129,7 @@ npx hardhat run scripts/vrf-helper.ts --network sonic
 npx hardhat run scripts/test-vrf-system.ts --network sonic
 
 # Make VRF request
-cast send 0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5 \
+cast send 0x694f00e7CAB26F9D05261c3d62F52a81DE18A777 \
   'requestRandomWordsSimple(uint32)' 30110 \
   --value 0.21ether \
   --rpc-url $RPC_URL_SONIC \
@@ -144,7 +144,7 @@ import { ethers } from 'ethers';
 
 const provider = new ethers.JsonRpcProvider('https://rpc.soniclabs.com/');
 const integrator = new ethers.Contract(
-  '0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5',
+  '0x694f00e7CAB26F9D05261c3d62F52a81DE18A777',
   INTEGRATOR_ABI,
   wallet
 );
@@ -189,7 +189,7 @@ console.log(`VRF Request sent: ${tx.hash}`);
 - **Key Hash**: `0x8472ba59cf7134dfe321f4d61a430c4857e8b19cdd5230b09952a92671c24409`
 - **Gas Lane**: 30 gwei
 - **Subscription**: Funded and operational
-- **Consumer**: `0x697a9d438a5b61ea75aa823f98a85efb70fd23d5` (Authorized)
+- **Consumer**: `0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5` (Authorized)
 
 ### VRF Benefits
 - **True Randomness**: Cryptographically secure and verifiable
@@ -214,9 +214,9 @@ console.log(`VRF Request sent: ${tx.hash}`);
 ## 🔐 Security & Verification
 
 ### Contract Verification
-- **Sonic Integrator**: [Verified on SonicScan](https://sonicscan.org/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
-- **Arbitrum Integrator**: [Verified on Arbiscan](https://arbiscan.io/address/0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5)
-- **Arbitrum Consumer**: [Verified on Arbiscan](https://arbiscan.io/address/0x697a9d438a5b61ea75aa823f98a85efb70fd23d5)
+- **Sonic Integrator**: [Verified on SonicScan](https://sonicscan.org/address/0x694f00e7CAB26F9D05261c3d62F52a81DE18A777)
+- **Arbitrum Integrator**: [Verified on Arbiscan](https://arbiscan.io/address/0x694f00e7CAB26F9D05261c3d62F52a81DE18A777)
+- **Arbitrum Consumer**: [Verified on Arbiscan](https://arbiscan.io/address/0x697a9d438A5B61ea75Aa823f98A85EFB70FD23d5)
 
 ### Security Features
 - **Owner Control**: `0xDDd0050d1E084dFc72d5d06447Cc10bcD3fEF60F`

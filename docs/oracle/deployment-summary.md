@@ -198,7 +198,7 @@ All secondary oracles deployed with consistent vanity addresses:
 ### OmniDragon VRF System
 - **Status**: ✅ **FULLY OPERATIONAL** 
 - **Cross-Chain VRF**: Sonic → Arbitrum → Chainlink VRF v2.5
-- **VRF Integrator**: `0x2BD68f5E956ca9789A7Ab7674670499e65140Bd5`
+- **VRF Integrator**: `0x694f00e7CAB26F9D05261c3d62F52a81DE18A777`
 - **Documentation**: See [VRF System Documentation](./vrf-system.md)
 - **Capabilities**: Secure cross-chain verifiable randomness
 
